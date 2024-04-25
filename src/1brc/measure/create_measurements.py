@@ -29,9 +29,9 @@ script_dir = Path(os.path.realpath(__file__)).parent
 
 def check_args(file_args):
     """Sanity checks input and prints out usage if input is not a positive integer."""
-    expected_args_len = 2
+    expected_args_len = 1
     try:
-        if len(file_args) != expected_args_len or int(file_args[1]) <= 0:
+        if len(file_args) != expected_args_len or int(file_args[0]) <= 0:
             raise Exception  # noqa: TRY301
     except Exception:
         print(
@@ -46,7 +46,7 @@ def check_args(file_args):
 def build_weather_station_name_list():
     """Grabs the weather station names from example data provided in repo and dedups."""
     station_names = []
-    with Path(f"{script_dir}/../../data/weather_stations.csv").open() as file:
+    with Path(f"{script_dir}/../../../data/weather_stations.csv").open() as file:
         file_contents = file.read()
         station_names = [
             station.split(";")[0]
@@ -109,7 +109,7 @@ def build_test_data(weather_station_names, num_rows_to_create):
     print("Building test data...")
 
     try:
-        with Path(f"{script_dir}/../../data/measurements.txt").open("w") as file:
+        with Path(f"{script_dir}/../../../data/measurements.txt").open("w") as file:
             progress = 0
             for chunk in range(chunks):
 
@@ -137,7 +137,7 @@ def build_test_data(weather_station_names, num_rows_to_create):
 
     end_time = time.time()
     elapsed_time = end_time - start_time
-    file_size = Path(f"{script_dir}/../../data/measurements.txt").stat().st_size
+    file_size = Path(f"{script_dir}/../../../data/measurements.txt").stat().st_size
     human_file_size = convert_bytes(file_size)
 
     print("Test data successfully written to 1brc/data/measurements.txt")
@@ -145,9 +145,9 @@ def build_test_data(weather_station_names, num_rows_to_create):
     print(f"Elapsed time: {format_elapsed_time(elapsed_time)}")
 
 
-def main():
+def create_measurement_file(args):
     """Main program function."""
-    check_args(sys.argv)
+    check_args(args)
     num_rows_to_create = int(sys.argv[1])
     weather_station_names = []
     weather_station_names = build_weather_station_name_list()
@@ -157,5 +157,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
-sys.exit()
+    args = sys.argv[1:]
+    create_measurement_file(args)
