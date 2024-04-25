@@ -2,7 +2,7 @@
 // Image template used: https://github.com/devcontainers/templates/tree/main/src/debian
 // "Using Images, Dockerfiles, and Docker Compose" guide: https://containers.dev/guide/dockerfile
 {
-    "name": "dev-1brc",
+    "name": "dev-onebrc",
     "image": "mcr.microsoft.com/devcontainers/base:debian",
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {

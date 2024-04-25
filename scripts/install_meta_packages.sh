@@ -23,7 +23,7 @@ usage() {
     echo "
 Usage: $(basename "${BASH_SOURCE[0]}") [-h|--help] [--debug] [--install-system-common-packages] [--install-system-dev-packages] [--install-pip-build-packages] [--install-pip-dev-packages] [--use-pipx]
 
-Script to install meta-dependencies for 1brc.
+Script to install meta-dependencies for onebrc.
 NOTE: meta-dependencies are dempendencies of the dependencies.
 
 Available options:

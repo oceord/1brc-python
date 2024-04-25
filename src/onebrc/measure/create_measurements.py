@@ -15,38 +15,25 @@
 #  limitations under the License.
 #
 
-# Based on https://github.com/gunnarmorling/1brc/blob/main/src/main/java/dev/morling/onebrc/CreateMeasurements.java
+# Based on https://github.com/gunnarmorling/onebrc/blob/main/src/main/java/dev/morling/onebrc/CreateMeasurements.java
 
 import os
 import random
 import sys
 import time
+from importlib.resources import files
 from math import ceil
 from pathlib import Path
 
-script_dir = Path(os.path.realpath(__file__)).parent
-
-
-def check_args(file_args):
-    """Sanity checks input and prints out usage if input is not a positive integer."""
-    expected_args_len = 1
-    try:
-        if len(file_args) != expected_args_len or int(file_args[0]) <= 0:
-            raise Exception  # noqa: TRY301
-    except Exception:
-        print(
-            "Usage:  create_measurements.sh "
-            "<positive integer number of records to create>",
-        )
-        print("        You can use underscore notation for large number of records.")
-        print("        For example:  1_000_000_000 for one billion")
-        sys.exit()
+SCRIPT_DIR = Path(os.path.realpath(__file__)).parent
+WEATHER_STATIONS_IO = files("onebrc.measure.data").joinpath("weather_stations.csv")
+OUTPUT_FILE = Path("test_data/measurements.txt")
 
 
 def build_weather_station_name_list():
     """Grabs the weather station names from example data provided in repo and dedups."""
     station_names = []
-    with Path(f"{script_dir}/../../../data/weather_stations.csv").open() as file:
+    with WEATHER_STATIONS_IO.open() as file:
         file_contents = file.read()
         station_names = [
             station.split(";")[0]
@@ -109,7 +96,7 @@ def build_test_data(weather_station_names, num_rows_to_create):
     print("Building test data...")
 
     try:
-        with Path(f"{script_dir}/../../../data/measurements.txt").open("w") as file:
+        with Path(OUTPUT_FILE).open("w") as file:
             progress = 0
             for chunk in range(chunks):
 
@@ -137,19 +124,16 @@ def build_test_data(weather_station_names, num_rows_to_create):
 
     end_time = time.time()
     elapsed_time = end_time - start_time
-    file_size = Path(f"{script_dir}/../../../data/measurements.txt").stat().st_size
+    file_size = Path(OUTPUT_FILE).stat().st_size
     human_file_size = convert_bytes(file_size)
 
-    print("Test data successfully written to 1brc/data/measurements.txt")
+    print("Test data successfully written to onebrc/data/measurements.txt")
     print(f"Actual file size:  {human_file_size}")
     print(f"Elapsed time: {format_elapsed_time(elapsed_time)}")
 
 
-def create_measurement_file(args):
+def create_measurement_file(num_rows_to_create):
     """Main program function."""
-    check_args(args)
-    num_rows_to_create = int(sys.argv[1])
-    weather_station_names = []
     weather_station_names = build_weather_station_name_list()
     print(estimate_file_size(weather_station_names, num_rows_to_create))
     build_test_data(weather_station_names, num_rows_to_create)
@@ -157,5 +141,5 @@ def create_measurement_file(args):
 
 
 if __name__ == "__main__":
-    args = sys.argv[1:]
-    create_measurement_file(args)
+    size = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+    create_measurement_file(size)

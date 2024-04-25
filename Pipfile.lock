@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c507aecfb83911b52db6ba453da499f779b4761ee71c91d43920f9e542f3db42"
+            "sha256": "236a812c7b2801eea9e7d032aad3ba8e2ae04fc4749280d70c8afe6a03078d92"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -17,10 +17,6 @@
     },
     "default": {},
     "develop": {
-        "1brc": {
-            "editable": true,
-            "file": "."
-        },
         "build": {
             "hashes": [
                 "sha256:526263f4870c26f26c433545579475377b2b7588b6f1eac76a001e873ae3e19d",
@@ -29,6 +25,10 @@
             "index": "pypi",
             "markers": "python_version >= '3.8'",
             "version": "==1.2.1"
+        },
+        "onebrc": {
+            "editable": true,
+            "file": "."
         },
         "packaging": {
             "hashes": [

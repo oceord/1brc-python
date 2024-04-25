@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 
 [dev-packages]
-1brc = {file = ".", editable = true}
+onebrc = {file = ".", editable = true}
 build = "*"
 ruff = "*"
 
