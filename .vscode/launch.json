@@ -5,12 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "CreateMeasurements",
+            "name": "CurrFile",
             "type": "debugpy",
             "request": "launch",
-            "module": "onebrc.measure.create_measurements",
+            "program": "${file}",
+            "console": "integratedTerminal",
             "args": [
-                "1_000_000",
+                "/workspaces/1brc-python/test_data/measurements.txt"
             ]
         }
     ]

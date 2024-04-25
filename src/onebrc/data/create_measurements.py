@@ -26,8 +26,8 @@ from math import ceil
 from pathlib import Path
 
 SCRIPT_DIR = Path(os.path.realpath(__file__)).parent
-WEATHER_STATIONS_IO = files("onebrc.measure.data").joinpath("weather_stations.csv")
-OUTPUT_FILE = Path("test_data/measurements.txt")
+WEATHER_STATIONS_IO = files("onebrc.data").joinpath("weather_stations.csv")
+OUTPUT_FILE = Path("./test_data/measurements.txt")
 
 
 def build_weather_station_name_list():
