@@ -21,7 +21,11 @@
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "cSpell.words": [
+        "Dask",
         "dedups",
-        "onebrc"
+        "mrjob",
+        "Numba",
+        "onebrc",
+        "Stackless"
     ]
 }
