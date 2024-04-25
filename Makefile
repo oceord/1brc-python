@@ -35,7 +35,7 @@ format: ## Format the entire codebase
 	type black >/dev/null 2>&1 ; then \
 		echo Formatting source-code... && \
 		echo Applying black... && \
-		black $(SRC) tests && \
+		black $(SRC) && \
 		echo Done. ; \
 	else echo SKIPPED. Run 'make pipenv-dev-install' first. >&2 ; fi
 
