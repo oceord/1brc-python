@@ -35,7 +35,7 @@ format: ## Format the entire codebase
 	type black >/dev/null 2>&1 ; then \
 		echo Formatting source-code... && \
 		echo Applying black... && \
-		black $(SRC) && \
+		black -q $(SRC) && \
 		echo Done. ; \
 	else echo SKIPPED. Run 'make pipenv-dev-install' first. >&2 ; fi
 
@@ -44,7 +44,7 @@ lint: ## Perform a static code analysis
 	type ruff >/dev/null 2>&1 ; then \
 		echo Linting source-code... && \
 		echo Applying ruff... && \
-		ruff $(SRC) tests && \
+		ruff check $(SRC) && \
 		echo Done. ; \
 	else echo SKIPPED. Run 'make pipenv-dev-install' first. >&2 ; fi
 

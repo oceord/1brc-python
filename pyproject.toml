@@ -2,10 +2,9 @@
 requires = ["setuptools>=43.0.0"]
 build-backend = "setuptools.build_meta"
 
-[tool.ruff]
+[tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-    # Allow public structures without docstrings
     "D100",
     "D101",
     "D102",
@@ -14,20 +13,17 @@ ignore = [
     "D105",
     "D106",
     "D107",
-    # Allow implicit namespace packages
     "INP",
-    # Allow print statements
     "T20",
-    # Allow standard pseudo-random generators
     "S311",
-    # Allow catching blind exception: `Exception`
     "BLE001",
     "TRY002",
+    "N999",
 ]
 
-[tool.ruff.flake8-annotations]
+[tool.ruff.lint.flake8-annotations]
 allow-star-arg-any = true
 ignore-fully-untyped = true
 
-[tool.ruff.pydocstyle]
+[tool.ruff.lint.pydocstyle]
 convention = "google"
