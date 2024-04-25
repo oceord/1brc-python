@@ -1,6 +1,6 @@
 # ROADMAP
 
-- [ ] Naive implementation
+- [x] Naive implementation
 
 ## Frameworks/Tools
 
@@ -11,6 +11,8 @@
 - [ ] DuckDB
 - [ ] Numba
 - [ ] mrjob
+- [ ] Numpy
+- [ ] ctypes/cyphon
 
 ## File formats
 
@@ -30,3 +32,4 @@
 
 - [ ] Numerical data only
 - [ ] Garbage Collection optimization
+- [ ] IO optimization

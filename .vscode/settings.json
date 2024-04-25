@@ -21,10 +21,13 @@
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "cSpell.words": [
+        "ctypes",
+        "cyphon",
         "Dask",
         "dedups",
         "mrjob",
         "Numba",
+        "Numpy",
         "onebrc",
         "Stackless"
     ]
