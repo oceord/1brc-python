@@ -9,7 +9,7 @@ def _main(path):
     with path.open() as file:
         acc = defaultdict(tuple)
         for line in file:
-            measurement_station, str_temperature = line.strip().split(";")
+            measurement_station, str_temperature = line.split(";")
             measurement_temperature = float(str_temperature)
             min_station, acc_station, max_station, count_station = acc[
                 measurement_station
@@ -46,7 +46,7 @@ def main_10(path):
 
 
 if __name__ == "__main__":
-    if "avg" in sys.argv:
+    if "--avg" in sys.argv:
         main_10(Path(sys.argv[1]))
     else:
         main(Path(sys.argv[1]))

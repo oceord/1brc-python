@@ -52,7 +52,7 @@ def main_10(path):
 
 
 if __name__ == "__main__":
-    if "avg" in sys.argv:
+    if "--avg" in sys.argv:
         main_10(Path(sys.argv[1]))
     else:
         main(Path(sys.argv[1]))

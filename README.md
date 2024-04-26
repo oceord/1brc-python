@@ -13,4 +13,5 @@ The sample size is 100_000_000.
 | Module              | Avg Exec Time (sec) |
 | :------------------ | ------------------: |
 | 00_naive_DictReader |   95.10874163000008 |
-| 01_naive_split      |   40.39355276039987 |
+| 01_naive_split      |   37.37240671530003 |
+| 02_naive_read_text  |   43.90962733860001 |
