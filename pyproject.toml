@@ -19,6 +19,8 @@ ignore = [
     "BLE001",
     "TRY002",
     "N999",
+    "F841",
+    "ERA001",
 ]
 
 [tool.ruff.lint.flake8-annotations]
