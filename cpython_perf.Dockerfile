@@ -1,9 +1,8 @@
 FROM debian:12 AS python-base
+ADD https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz /
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential \
-    ca-certificates \
-    curl \
     gdb \
     lcov \
     libbz2-dev \
@@ -20,10 +19,8 @@ RUN apt-get update && \
     pkg-config \
     tk-dev \
     uuid-dev \
-    wget \
     zlib1g-dev \
-    && rm -rf /var/lib/apt/lists/*
-RUN wget https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz && \
+    && rm -rf /var/lib/apt/lists/* && \
     tar -xvf Python-3.12.3.tgz && \
     cd Python-3.12.3 && \
     ./configure --enable-optimizations --with-lto && \
