@@ -23,6 +23,7 @@ The sample size is 100_000_000.
 
 ### Conditions
 
+- Python version: 3.12.3
 - CPU: 12th Gen Intel® Core™ i7-1255U × 12
 - RAM: 16.0 GiB
 - All benchmarks are executed inside a docker container
