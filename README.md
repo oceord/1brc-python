@@ -8,14 +8,14 @@ Contrary to the rules of the challenge, external dependencies are used.
 
 ## Execution Benchmarks
 
-Next follows a table with benchmarks for all approaches.
-The sample size is 100_000_000.
+Next follows a table with benchmarks for all solutions.
 These benchmarks are the Average Execution Time (AET) in seconds for 10 executions.
 Please refer to [exec_logs](./exec_logs/) for the execution log of these benchmarks.
-It is possible for each approach to be applied to different Python implementations.
+It is possible for each solution to be applied to different constraints, such as Python implementations.
 Please refer to [Python Implementations](#python-implementations) for more information on the variants used.
+The sample size is 100_000_000.
 
-| Implementation         |       CPython AET | CPython_PerfOpt AET |
+| Solution               |       CPython AET | CPython_PerfOpt AET |
 | :--------------------- | ----------------: | ------------------: |
 | `00_native_DictReader` | 95.10874163000008 |   85.06736754700069 |
 | `01_native_split`      | 37.37240671530003 |   35.62867767150019 |
