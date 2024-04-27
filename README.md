@@ -24,7 +24,7 @@ The sample size is 100_000_000.
 - RAM: 16.0 GiB
 - All benchmarks are executed inside a docker container. To avoid any performance penalty due to docker security features, the `--privileged` flag is used when running the container, as suggested by [this](https://pythonspeed.com/articles/docker-performance-overhead/) Python⇒Speed article. Please refer to the `./scripts/docker_run_*.sh` scripts to see exactly how tests are executed under docker.
 
-## Description
+## Approaches Description
 
 - `00_native_DictReader`: read DictReader item by item, updating an accumulator dict iteratively
 - `01_native_split`: read from Path.open() line by line, splitting the line by ";" and updating an accumulator dict iteratively
