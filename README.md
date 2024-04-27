@@ -32,9 +32,9 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 
 ## Approaches Description
 
-- `00_native_DictReader`: read DictReader item by item, updating an accumulator dict iteratively
-- `01_native_split`: read from Path.open() line by line, splitting the line by ";" and updating an accumulator dict iteratively
-- `02_native_read_text`: use Path.read_text() to load the entire file at once, splitting by "\n" and then by ";", and finally updating an accumulator dict iteratively
+- `00_native_DictReader`: read `DictReader` item by item, updating an accumulator dict iteratively
+- `01_native_split`: read from `Path.open()` line by line, splitting the line by ";" and updating an accumulator dict iteratively
+- `02_native_read_text`: use `Path.read_text()` to load the entire file at once, splitting by "\n" and then by ";", and finally updating an accumulator dict iteratively
 
 ### Python Implementations
 
