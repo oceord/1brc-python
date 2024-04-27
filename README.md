@@ -26,9 +26,8 @@ The sample size is 100_000_000.
 - Python version: 3.12.3
 - CPU: 12th Gen Intel® Core™ i7-1255U × 12
 - RAM: 16.0 GiB
-- All benchmarks are executed inside a docker container
-  - To avoid any performance penalty due to docker security features, the `--privileged` flag is used when running the container
-  - This is suggested by [this](https://pythonspeed.com/articles/docker-performance-overhead/) Python⇒Speed article
+- All benchmarks are executed inside docker containers
+  - To avoid any performance penalty due to docker security features, the `--privileged` flag is used when running the container (suggested by Python⇒Speed [here](https://pythonspeed.com/articles/docker-performance-overhead/))
   - Please refer to the `./scripts/docker_run_*.sh` scripts to see exactly how tests are executed under docker containers
 
 ## Approaches Description
@@ -43,6 +42,6 @@ The sample size is 100_000_000.
 ### Python Implementations
 
 - **CPython**: the standard, vanilla Python implemented in C
-- **CPython_PerfOpt**: is the same as CPython, but compiled and built as per the [Python Developer's Guide](https://devguide.python.org/getting-started/setup-building/index.html#optimization) with the following flags to optimize for performance:
+- **CPython_PerfOpt**: same as CPython, but compiled and built with the following flags to optimize for performance (as per the [Python Developer's Guide](https://devguide.python.org/getting-started/setup-building/index.html#optimization)):
   - [`--enable-optimizations`](https://docs.python.org/3/using/configure.html#cmdoption-enable-optimizations) (enables Profile Guided Optimization)
   - [`--with-lto`](https://docs.python.org/3/using/configure.html#cmdoption-with-lto) (enables Link Time Optimization)
