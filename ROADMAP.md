@@ -1,6 +1,6 @@
 # ROADMAP
 
-- [x] Naive implementation
+- [x] Native implementation
 
 ## Frameworks/Tools
 
@@ -24,7 +24,7 @@
 
 ## Python implementation
 
-- [ ] Python optimized for performance
+- [x] Python optimized for performance
 - [ ] PyPy
 - [ ] Stackless Python
 

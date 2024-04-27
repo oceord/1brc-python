@@ -28,7 +28,7 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 - All benchmarks are executed inside a docker container
   - To avoid any performance penalty due to docker security features, the `--privileged` flag is used when running the container
   - This is suggested by [this](https://pythonspeed.com/articles/docker-performance-overhead/) Python⇒Speed article
-  - Please refer to the `./scripts/docker_run_*.sh` scripts to see exactly how tests are executed under docker
+  - Please refer to the `./scripts/docker_run_*.sh` scripts to see exactly how tests are executed under docker containers
 
 ## Approaches Description
 
