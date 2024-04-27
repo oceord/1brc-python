@@ -31,7 +31,7 @@ def timeit_avg(func):
         avg_execution_time = mean(exec_times)
         print(f"\nModule:\t\t{func_module}.{func.__name__}")
         print(f"AvgExecTime:\t{avg_execution_time}")
-        print(f"ExecTimes:\t{"\n\t\t\t".join(str(t) for t in sorted(exec_times))}\n")
+        print(f"ExecTimes:\t{"\n\t\t".join(str(t) for t in sorted(exec_times))}\n")
         return result
 
     return wrapper
