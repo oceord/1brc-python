@@ -43,6 +43,6 @@ The sample size is 100_000_000.
 ### Python Implementations
 
 - **CPython**: the standard, vanilla Python implemented in C
-- **CPython_PerfOpt**: is the same as CPython, but compiled and built as per the [Python Developer's Guide](https://devguide.python.org/getting-started/setup-building/index.html#optimization) with the following flags:
+- **CPython_PerfOpt**: is the same as CPython, but compiled and built as per the [Python Developer's Guide](https://devguide.python.org/getting-started/setup-building/index.html#optimization) with the following flags to optimize for performance:
   - [`--enable-optimizations`](https://docs.python.org/3/using/configure.html#cmdoption-enable-optimizations) (enables Profile Guided Optimization)
   - [`--with-lto`](https://docs.python.org/3/using/configure.html#cmdoption-with-lto) (enables Link Time Optimization)
