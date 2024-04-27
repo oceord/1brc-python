@@ -12,6 +12,7 @@
         "streetsidesoftware.code-spell-checker",
         "tamasfe.even-better-toml",
         "timonwong.shellcheck",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "christian-kohler.path-intellisense"
     ]
 }

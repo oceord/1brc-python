@@ -18,7 +18,7 @@
             "ppa": "false"
         },
         "ghcr.io/devcontainers/features/python:1": {
-            "version": "3.12",
+            "version": "3.12.3",
             "installTools": "true",
             "optimize": "false"
         }
@@ -54,7 +54,8 @@
                 "streetsidesoftware.code-spell-checker",
                 "tamasfe.even-better-toml",
                 "timonwong.shellcheck",
-                "yzhang.markdown-all-in-one"
+                "yzhang.markdown-all-in-one",
+                "christian-kohler.path-intellisense"
             ]
         }
     }

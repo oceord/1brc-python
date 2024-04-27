@@ -1,4 +1,4 @@
-FROM python:3.12-slim-bookworm AS python-base
+FROM python:3.12.3-slim-bookworm AS python-base
 
 ########## BASE ########################################################################
 
@@ -28,25 +28,7 @@ FROM build AS build-slim
 RUN rm -r *
 COPY --chown=python Makefile ./
 
-########## TEST ########################################################################
-
-FROM build AS test-build
-RUN ./scripts/install_meta_packages.sh --install-pip-dev-packages \
-    && pipenv install --dev --system --ignore-pipfile --deploy
-
-FROM test-build AS test
-LABEL name={NAME}
-LABEL version={VERSION}
-RUN ["make", "test"]
-
 ########## MAIN ########################################################################
 
-FROM build-slim AS dev
-LABEL name={NAME}
-LABEL version={VERSION}
-CMD ["make", "run-dev"]
-
 FROM build-slim AS prod
-LABEL name={NAME}
-LABEL version={VERSION}
-CMD ["make", "run-prod"]
+CMD ["tail", "-f", "/dev/null"]

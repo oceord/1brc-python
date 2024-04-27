@@ -10,8 +10,8 @@ def timeit(func):
         result = func(*args, **kwargs)
         end_time = time.perf_counter()
         execution_time = end_time - start_time # seconds
-        print(f"\n\tModule:\t\t{func_module}.{func.__name__}")
-        print(f"\tExecTime:\t{execution_time}\n")
+        print(f"\nModule:\t\t{func_module}.{func.__name__}")
+        print(f"ExecTime:\t{execution_time}\n")
         return result
 
     return wrapper
@@ -29,9 +29,9 @@ def timeit_avg(func):
             execution_time = end_time - start_time # seconds
             exec_times.append(execution_time)
         avg_execution_time = mean(exec_times)
-        print(f"\n\tModule:\t\t{func_module}.{func.__name__}")
-        print(f"\tAvgExecTime:\t{avg_execution_time}")
-        print(f"\tExecTimes:\t{"\n\t\t\t".join(str(t) for t in sorted(exec_times))}\n")
+        print(f"\nModule:\t\t{func_module}.{func.__name__}")
+        print(f"AvgExecTime:\t{avg_execution_time}")
+        print(f"ExecTimes:\t{"\n\t\t\t".join(str(t) for t in sorted(exec_times))}\n")
         return result
 
     return wrapper

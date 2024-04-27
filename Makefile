@@ -52,5 +52,16 @@ pipenv-dev-install: ## Create dev venv
 	@pipenv run pip install --upgrade pip
 	@pipenv install --dev --ignore-pipfile --deploy
 
-run: ## Run
-	@echo TODO: Not Implemented; exit 1;
+docker-build: ## Build all Dockerfile images for onebrc
+	@docker build -f cpython.Dockerfile -t onebrc-cpython .
+	@docker build -f cpython_perf.Dockerfile -t onebrc-cpython_perf .
+
+run-cpython-docker-100t: ## Run all modules inside a docker container using 100t.txt
+	@python -m onebrc.00_native_DictReader /onebrc/test_data/100t.txt
+	@python -m onebrc.01_native_split /onebrc/test_data/100t.txt
+	@python -m onebrc.02_native_read_text /onebrc/test_data/100t.txt
+
+run-cpython-docker-100m: ## Run all modules inside a docker container using 100m.txt
+	@python -m onebrc.00_native_DictReader /onebrc/test_data/100m.txt
+	@python -m onebrc.01_native_split /onebrc/test_data/100m.txt
+	@python -m onebrc.02_native_read_text /onebrc/test_data/100m.txt
