@@ -2,5 +2,5 @@
 
 docker run --privileged --rm -it \
     -v /home/oceord/Dev/1brc-python/test_data:/onebrc/test_data \
-    --name onebrc-cpython onebrc-cpython \
-    make run-cpython-100m-docker
+    --name onebrc-cpython_perf onebrc-cpython_perf \
+    make run-cpython-no-gc-100t-docker

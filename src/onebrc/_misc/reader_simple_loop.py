@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-from onebrc.measure.timeit import timeit, timeit_avg
+from onebrc.decorators.timeit import timeit, timeit_avg
 
 
 def _main(path):

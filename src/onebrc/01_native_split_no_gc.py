@@ -2,9 +2,11 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+from onebrc.decorators.gc import no_gc
 from onebrc.decorators.timeit import timeit, timeit_avg
 
 
+@no_gc
 def _main(path):
     with path.open() as file:
         acc = defaultdict(tuple)

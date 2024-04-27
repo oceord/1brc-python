@@ -31,5 +31,5 @@
 ## Other
 
 - [ ] Numerical data only
-- [ ] Garbage Collection optimization
+- [x] Garbage Collection optimization
 - [ ] IO optimization

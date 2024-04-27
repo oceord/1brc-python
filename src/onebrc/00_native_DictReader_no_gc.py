@@ -1,16 +1,25 @@
+import gc
 import sys
 from collections import defaultdict
+from csv import DictReader
 from pathlib import Path
 
+from onebrc.decorators.gc import no_gc
 from onebrc.decorators.timeit import timeit, timeit_avg
 
 
+@no_gc
 def _main(path):
     with path.open() as file:
+        measurements = DictReader(
+            file,
+            delimiter=";",
+            fieldnames=["station", "temperature"],
+        )
         acc = defaultdict(tuple)
-        for line in file:
-            measurement_station, str_temperature = line.split(";")
-            measurement_temperature = float(str_temperature)
+        for measurement in measurements:
+            measurement_station = measurement["station"]
+            measurement_temperature = float(measurement["temperature"])
             min_station, acc_station, max_station, count_station = acc[
                 measurement_station
             ] or (0, 0, 0, 0)
