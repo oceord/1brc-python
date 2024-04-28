@@ -25,11 +25,17 @@
         "ctypes",
         "cyphon",
         "Dask",
+        "dataframe",
         "dedups",
+        "dtype",
+        "groupby",
+        "loadtxt",
         "mrjob",
+        "njit",
         "Numba",
         "Numpy",
         "onebrc",
+        "pyarrow",
         "Stackless"
     ]
 }

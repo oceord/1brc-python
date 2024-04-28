@@ -55,7 +55,8 @@
                 "tamasfe.even-better-toml",
                 "timonwong.shellcheck",
                 "yzhang.markdown-all-in-one",
-                "christian-kohler.path-intellisense"
+                "christian-kohler.path-intellisense",
+                "ms-toolsai.jupyter"
             ]
         }
     }

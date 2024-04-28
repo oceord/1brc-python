@@ -4,11 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+numba = "*"
+numpy = "*"
+pandas = "*"
+pyarrow = "*"
 
 [dev-packages]
 onebrc = {file = ".", editable = true}
 build = "*"
 ruff = "*"
+ipykernel = "*"
 
 [requires]
 python_version = "3.12.3"

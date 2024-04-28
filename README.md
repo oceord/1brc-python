@@ -15,11 +15,13 @@ It is possible for each solution to be applied to different constraints, such as
 Please refer to [Python Implementations](#python-implementations) for more information on the variants used.
 The sample size is 100_000_000.
 
-| Solution               |        CPython AET | CPython_PerfOpt AET | CPython_PerfOpt NoGC AET |
-| :--------------------- | -----------------: | ------------------: | -----------------------: |
-| `00_native_DictReader` | 103.50249929480000 |   84.76180624280013 |       84.535680547699940 |
-| `01_native_split`      |  40.46400032099996 |   34.26652510729991 |       34.461449691899910 |
-| `02_native_read_text`  |  43.94906078919994 |   40.30543842410007 |       38.031868851099986 |
+| Solution               |         CPython AET | CPython_PerfOpt AET | CPython_PerfOpt NoGC AET |
+| :--------------------- | ------------------: | ------------------: | -----------------------: |
+| `00_native_DictReader` | 103.502499294800000 |  84.761806242800130 |       84.535680547699940 |
+| `01_native_split`      |  40.464000320999960 |  34.266525107299910 |       34.461449691899910 |
+| `02_native_read_text`  |  43.949060789199940 |  40.305438424100070 |       38.031868851099986 |
+| `03_pandas`            |  24.059014162899622 |  21.395355599600226 |                       NA |
+| `03_pandas_pyarrow`    |   9.006716673700430 |   8.476204701700045 |                       NA |
 
 ### Conditions
 
@@ -39,6 +41,8 @@ The sample size is 100_000_000.
 - `01_native_split_no_gc`:  variant of `01_native_split` with garbage collection disabled
 - `02_native_read_text`: use `Path.read_text()` to load the entire file at once, splitting by "\n" and then by ";", and finally updating an accumulator dict iteratively
 - `02_native_read_text_no_gc`: variant of `02_native_read_text` with garbage collection disabled
+- `03_pandas`: uses `pandas.read_csv()` to read the csv data into a DataFrame, then uses `df.groupby()` to group the stations, and finally aggregates the temperatures with `df_gb.agg(["min", "mean", "max"])`
+- `03_pandas_pyarrow`: variant of `03_pandas` that uses the newer [pyarrow](https://arrow.apache.org/) [engine](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
 
 ### Python Implementations
 

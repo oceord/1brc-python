@@ -4,10 +4,11 @@
 
 ## Frameworks/Tools
 
-- [ ] Pandas
-- [ ] PyArrow
+- [x] Pandas
+- [x] PyArrow
 - [ ] Polars
 - [ ] Dask
+- [ ] Modin
 - [ ] DuckDB
 - [ ] Numba
 - [ ] mrjob
