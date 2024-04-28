@@ -5,15 +5,20 @@
 ## Frameworks/Tools
 
 - [x] Pandas
-- [x] PyArrow
-- [ ] Polars
+- [x] Pandas with PyArrow
 - [ ] Dask
 - [ ] Modin
 - [ ] DuckDB
+- [ ] Polars
+- [ ] Numpy
+- [ ] Pyarrow
 - [ ] Numba
 - [ ] mrjob
-- [ ] Numpy
-- [ ] ctypes/cyphon
+
+## Other languages inside Python
+
+- [ ] C (ctypes/cyphon)
+- [ ] Rust (PyO3)
 
 ## File formats
 
@@ -21,9 +26,8 @@
 - [ ] ORC
 - [ ] Feather
 - [ ] Avro
-- [ ] Parquet
 
-## Python implementation
+## Python implementations
 
 - [x] Python optimized for performance
 - [ ] PyPy
@@ -31,6 +35,5 @@
 
 ## Other
 
-- [ ] Numerical data only
 - [x] Garbage Collection optimization
-- [ ] IO optimization
+- [ ] Numerical data only
