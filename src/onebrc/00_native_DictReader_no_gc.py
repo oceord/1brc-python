@@ -1,6 +1,4 @@
-import gc
 import sys
-from collections import defaultdict
 from csv import DictReader
 from pathlib import Path
 
@@ -16,13 +14,14 @@ def _main(path):
             delimiter=";",
             fieldnames=["station", "temperature"],
         )
-        acc = defaultdict(tuple)
+        acc = {}
         for measurement in measurements:
             measurement_station = measurement["station"]
             measurement_temperature = float(measurement["temperature"])
-            min_station, acc_station, max_station, count_station = acc[
-                measurement_station
-            ] or (0, 0, 0, 0)
+            min_station, acc_station, max_station, count_station = acc.get(
+                measurement_station,
+                (0, 0, 0, 0),
+            )
             acc[measurement_station] = (
                 (
                     measurement_temperature

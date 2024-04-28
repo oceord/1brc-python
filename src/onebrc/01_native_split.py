@@ -1,5 +1,4 @@
 import sys
-from collections import defaultdict
 from pathlib import Path
 
 from onebrc.decorators.timeit import timeit, timeit_avg
@@ -7,13 +6,14 @@ from onebrc.decorators.timeit import timeit, timeit_avg
 
 def _main(path):
     with path.open() as file:
-        acc = defaultdict(tuple)
+        acc = {}
         for line in file:
             measurement_station, str_temperature = line.split(";")
             measurement_temperature = float(str_temperature)
-            min_station, acc_station, max_station, count_station = acc[
-                measurement_station
-            ] or (0, 0, 0, 0)
+            min_station, acc_station, max_station, count_station = acc.get(
+                measurement_station,
+                (0, 0, 0, 0),
+            )
             acc[measurement_station] = (
                 (
                     measurement_temperature

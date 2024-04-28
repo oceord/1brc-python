@@ -15,11 +15,11 @@ It is possible for each solution to be applied to different constraints, such as
 Please refer to [Python Implementations](#python-implementations) for more information on the variants used.
 The sample size is 100_000_000.
 
-| Solution               |       CPython AET | CPython_PerfOpt AET | CPython_PerfOpt NoGC AET |
-| :--------------------- | ----------------: | ------------------: | -----------------------: |
-| `00_native_DictReader` | 95.10874163000008 |  85.067367547000690 |        85.17166503239996 |
-| `01_native_split`      | 37.37240671530003 |  35.628677671500190 |        35.18999621999983 |
-| `02_native_read_text`  | 43.90962733860001 |  41.248077518200446 |        38.91942286019994 |
+| Solution               |        CPython AET | CPython_PerfOpt AET | CPython_PerfOpt NoGC AET |
+| :--------------------- | -----------------: | ------------------: | -----------------------: |
+| `00_native_DictReader` | 103.50249929480000 |   84.76180624280013 |       84.535680547699940 |
+| `01_native_split`      |  40.46400032099996 |   34.26652510729991 |       34.461449691899910 |
+| `02_native_read_text`  |  43.94906078919994 |   40.30543842410007 |       38.031868851099986 |
 
 ### Conditions
 
