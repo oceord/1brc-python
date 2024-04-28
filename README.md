@@ -26,6 +26,7 @@ The sample size is 100_000_000.
 - Python version: 3.12.3
 - CPU: 12th Gen Intel® Core™ i7-1255U × 12
 - RAM: 16.0 GiB
+- Hard Drive: WD PC SN560 SDDPNQE-1T00-1006 (SSD)
 - All benchmarks are executed inside docker containers
   - To avoid any performance penalty due to docker security features, the `--privileged` flag is used when running the container (suggested by Python⇒Speed [here](https://pythonspeed.com/articles/docker-performance-overhead/))
   - Please refer to the `./scripts/docker_run_*.sh` scripts to see exactly how tests are executed under docker containers
