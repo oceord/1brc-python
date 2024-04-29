@@ -6,7 +6,7 @@
 
 - [x] Pandas
 - [x] Pandas with PyArrow
-- [ ] Dask
+- [x] Dask
 - [ ] Modin
 - [ ] DuckDB
 - [ ] Polars

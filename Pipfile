@@ -8,6 +8,7 @@ numba = "*"
 numpy = "*"
 pandas = "*"
 pyarrow = "*"
+dask = {extras = ["dataframe"], version = "*"}
 
 [dev-packages]
 onebrc = {file = ".", editable = true}

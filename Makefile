@@ -83,3 +83,11 @@ run-pandas-100t-docker: ## Run all modules inside a docker container using 100t.
 run-pandas-100m-docker: ## Run all modules inside a docker container using 100m.txt
 	@python -m onebrc.03_pandas /onebrc/test_data/100m.txt --avg
 	@python -m onebrc.03_pandas_pyarrow /onebrc/test_data/100m.txt --avg
+
+run-dask-100t-docker: ## Run all modules inside a docker container using 100t.txt
+	@python -m onebrc.04_dask /onebrc/test_data/100t.txt --avg
+	@python -m onebrc.04_dask_pyarrow /onebrc/test_data/100t.txt --avg
+
+run-dask-100m-docker: ## Run all modules inside a docker container using 100m.txt
+	@python -m onebrc.04_dask /onebrc/test_data/100m.txt --avg
+	@python -m onebrc.04_dask_pyarrow /onebrc/test_data/100m.txt --avg

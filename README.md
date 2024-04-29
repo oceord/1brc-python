@@ -22,6 +22,8 @@ The sample size is 100_000_000.
 | `02_native_read_text`  |  43.949060789199940 |  40.305438424100070 |       38.031868851099986 |
 | `03_pandas`            |  23.966052411600050 |  21.529643636099810 |                       NA |
 | `03_pandas_pyarrow`    |   8.810280438700010 |   8.348748203100058 |                       NA |
+| `04_dask`              |  17.696868978899694 |  17.089776023899866 |                       NA |
+| `04_dask_pyarrow`      |   7.473762322799485 |   7.454429598199567 |                       NA |
 
 ### Conditions
 
@@ -43,6 +45,8 @@ The sample size is 100_000_000.
 - `02_native_read_text_no_gc`: variant of `02_native_read_text` with garbage collection disabled
 - `03_pandas`: uses `pandas.read_csv()` to read the csv data into a DataFrame, then uses `df.groupby()` to group the stations, and finally aggregates the temperatures with `df_gb.agg(["min", "mean", "max"])`
 - `03_pandas_pyarrow`: variant of `03_pandas` that uses the newer [pyarrow](https://arrow.apache.org/) [engine](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
+- `04_dask`: uses the `dask` library for parallel computing, mirroring Pandas' DataFrame API
+- `04_dask_pyarrow`: variant of `04_dask` that uses the newer [pyarrow](https://arrow.apache.org/) [engine](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
 
 ### Python Implementations
 
