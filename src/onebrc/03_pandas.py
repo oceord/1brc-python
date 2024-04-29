@@ -16,12 +16,12 @@ def _main(path):
         )
         .groupby(0)
         .agg(["min", "mean", "max"])
-        .to_dict("index")
+        .apply(
+            lambda row: f"{row.name}=" + "/".join(row.to_numpy().astype(str)),
+            axis=1,
+        )
     )
-    res = [
-        f"{station}={agg[(1,'min')]}/{round(agg[(1,'mean')], 1)}/{agg[(1,'max')]}"
-        for station, agg in dict_df.items()
-    ]
+    res = dict_df.to_list()
     # print(*res, sep=", ")
 
 
