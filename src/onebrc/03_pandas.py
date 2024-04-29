@@ -7,7 +7,7 @@ from onebrc.decorators.timeit import timeit, timeit_avg
 
 
 def _main(path):
-    dict_df = (
+    res = (
         pd.read_csv(
             path,
             sep=";",
@@ -17,11 +17,13 @@ def _main(path):
         .groupby(0)
         .agg(["min", "mean", "max"])
         .apply(
-            lambda row: f"{row.name}=" + "/".join(row.to_numpy().astype(str)),
+            lambda row: f"{row.name}="
+            + "/".join(str(round(v, 1)) for v in row.to_numpy()),
             axis=1,
+            result_type="reduce",
         )
+        .to_list()
     )
-    res = dict_df.to_list()
     # print(*res, sep=", ")
 
 
