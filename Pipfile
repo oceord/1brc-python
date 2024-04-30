@@ -8,7 +8,8 @@ numba = "*"
 numpy = "*"
 pandas = "*"
 pyarrow = "*"
-dask = {extras = ["dataframe"], version = "*"}
+dask = {extras = ["dataframe"] }
+modin = {extras = ["dask"], version = "*"}
 
 [dev-packages]
 onebrc = {file = ".", editable = true}

@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-import pandas as pd
+import modin.pandas as pd
 
 from onebrc.decorators.timeit import timeit, timeit_avg
 
@@ -13,7 +13,6 @@ def _main(path):
             sep=";",
             header=None,
             dtype={0: str, 1: float},
-            engine="pyarrow",
         )
         .groupby(0)
         .agg(["min", "mean", "max"])
@@ -23,7 +22,8 @@ def _main(path):
             axis=1,
             result_type="reduce",
         )
-        .to_list()
+        .to_numpy()
+        .tolist()
     )
     # print(*res, sep=", ")
 
@@ -39,6 +39,7 @@ def main_10(path):
 
 
 if __name__ == "__main__":
+    _main(Path(sys.argv[1]))
     if "--avg" in sys.argv:
         main_10(Path(sys.argv[1]))
     else:
