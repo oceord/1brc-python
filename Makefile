@@ -53,12 +53,12 @@ pipenv-dev-install: ## Create dev venv
 	@pipenv install --dev --ignore-pipfile --deploy
 
 docker-build: ## Build all Dockerfile images for onebrc
-	@docker build -f cpython.Dockerfile -t onebrc-cpython .
-	@docker build -f cpython_perf.Dockerfile -t onebrc-cpython_perf .
+	@docker build -f dockerfiles/cpython.Dockerfile -t onebrc-cpython .
+	@docker build -f dockerfiles/cpython_perf.Dockerfile -t onebrc-cpython_perf .
 
 docker-build-modin: ## Build all Dockerfile images for onebrc
-	@docker build -f cpython.modin.Dockerfile -t onebrc-cpython-modin .
-	@docker build -f cpython_perf.modin.Dockerfile -t onebrc-cpython_perf-modin .
+	@docker build -f dockerfiles/cpython.modin.Dockerfile -t onebrc-cpython-modin .
+	@docker build -f dockerfiles/cpython_perf.modin.Dockerfile -t onebrc-cpython_perf-modin .
 
 run-cpython-100t-docker: ## Run all modules inside a docker container using 100t.txt
 	@python -m onebrc.00_native_DictReader /onebrc/test_data/100t.txt --avg
