@@ -20,10 +20,16 @@ def _main(path):
             pl.mean("column_2").alias("mean"),
             pl.max("column_2").alias("max"),
         )
-        .collect(streaming=True)
-        .map_rows(
-            lambda row: f"{row[0]}=" + "/".join(str(round(v, 1)) for v in row[1:]),
+        .select(
+            pl.col("column_1")
+            + "="
+            + pl.col("min").round(1).cast(pl.String)
+            + "/"
+            + pl.col("mean").round(1).cast(pl.String)
+            + "/"
+            + pl.col("max").round(1).cast(pl.String),
         )
+        .collect(streaming=True)
         .to_series()
     )
     # print(*res, sep=", ")
