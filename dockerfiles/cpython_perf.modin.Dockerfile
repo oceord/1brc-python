@@ -1,5 +1,5 @@
 FROM debian:12 AS python-base
-ADD https://www.python.org/ftp/python/3.10.14/Python-3.10.14.tgz /
+ADD https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz /
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential \
@@ -21,15 +21,15 @@ RUN apt-get update && \
     uuid-dev \
     zlib1g-dev \
     && rm -rf /var/lib/apt/lists/* && \
-    tar -xvf Python-3.10.14.tgz && \
-    cd Python-3.10.14 && \
+    tar -xvf Python-3.11.9.tgz && \
+    cd Python-3.11.9 && \
     ./configure --enable-optimizations --with-lto && \
     make -j$(nproc) && \
     make altinstall && \
     cd ../ && \
-    rm -rf Python-3.10.14.tgz Python-3.10.14 && \
-    ln -s -f /usr/local/bin/python3.10 /usr/local/bin/python && \
-    ln -s -f /usr/local/bin/pip3.10 /usr/local/bin/pip
+    rm -rf Python-3.11.9.tgz Python-3.11.9 && \
+    ln -s -f /usr/local/bin/python3.11 /usr/local/bin/python && \
+    ln -s -f /usr/local/bin/pip3.11 /usr/local/bin/pip
 
 ########## BASE ########################################################################
 

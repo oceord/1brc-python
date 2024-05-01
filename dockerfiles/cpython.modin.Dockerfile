@@ -1,4 +1,4 @@
-FROM python:3.10.14-slim-bookworm AS python-base
+FROM python:3.11.9-slim-bookworm AS python-base
 
 ########## BASE ########################################################################
 

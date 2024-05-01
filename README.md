@@ -24,7 +24,7 @@ The sample size is 100_000_000.
 | `03_pandas_pyarrow`            |   8.8102804387000100 |  8.3487482031000580 |                       NA |
 | `04_dask`                      |  17.6968689788996940 | 17.0897760238998660 |                       NA |
 | `04_dask_pyarrow`              |   7.4737623227994850 |  7.4544295981995670 |                       NA |
-| `05_modin_ray`                 |  26.5561460583001470 | 25.0036412074003240 |                       NA |
+| `05_modin_ray`                 |  26.5887451761998830 |  24.758907068000006 |                       NA |
 | `06_polars_read_csv`           |   4.8700010490000750 |  4.8267042113001480 |                       NA |
 | `06_polars_scan_csv`           |   5.1010372745000490 |  4.8729900201999050 |                       NA |
 | `06_polars_scan_csv_streaming` |   2.9765750913000373 |  2.9723517919000186 |                       NA |
@@ -32,7 +32,7 @@ The sample size is 100_000_000.
 ### Conditions
 
 - Python version: 3.12.3
-  - Exception: `04_modin` uses 3.10.14 because `ray` needs it
+  - Exception: `04_modin` uses 3.11.9 because `ray` needs it
 - CPU: 12th Gen Intel® Core™ i7-1255U × 12
 - RAM: 16.0 GiB
 - Hard Drive: WD PC SN560 SDDPNQE-1T00-1006 (SSD)
