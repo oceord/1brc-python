@@ -8,8 +8,8 @@
 - [x] Pandas with PyArrow
 - [x] Dask
 - [x] Modin
+- [x] Polars
 - [ ] DuckDB
-- [ ] Polars
 - [ ] Numpy
 - [ ] Pyarrow
 - [ ] Numba

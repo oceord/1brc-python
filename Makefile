@@ -101,3 +101,11 @@ run-modin-ray-100t-docker: ## Run all modules inside a docker container using 10
 
 run-modin-ray-100m-docker: ## Run all modules inside a docker container using 100m.txt
 	@MODIN_ENGINE=ray python -m onebrc.05_modin_ray /onebrc/test_data/100m.txt --avg
+
+run-polars-100t-docker: ## Run all modules inside a docker container using 100t.txt
+	@python -m onebrc.06_polars_read_csv /onebrc/test_data/100t.txt --avg
+	@python -m onebrc.06_polars_scan_csv /onebrc/test_data/100t.txt --avg
+
+run-polars-100m-docker: ## Run all modules inside a docker container using 100m.txt
+	@python -m onebrc.06_polars_read_csv /onebrc/test_data/100m.txt --avg
+	@python -m onebrc.06_polars_scan_csv /onebrc/test_data/100m.txt --avg

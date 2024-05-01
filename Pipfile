@@ -10,6 +10,7 @@ pandas = "*"
 pyarrow = "*"
 dask = {extras = ["dataframe"] }
 modin = {extras = ["dask"], version = "*"}
+polars = "*"
 
 [dev-packages]
 onebrc = {file = ".", editable = true}
