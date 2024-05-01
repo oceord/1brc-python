@@ -18,24 +18,24 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 
 | Solution                       | CPython AET | CPython_PerfOpt AET | CPython_PerfOpt NoGC AET |
 | :----------------------------- | ----------: | ------------------: | -----------------------: |
-| `00_native_DictReader`         |             |                     |                          |
-| `01_native_split`              |             |                     |                          |
-| `02_native_read_text`          |             |                     |                          |
-| `03_pandas`                    |             |                     |                       NA |
-| `03_pandas_pyarrow`            |             |                     |                       NA |
-| `04_dask`                      |             |                     |                       NA |
-| `04_dask_pyarrow`              |             |                     |                       NA |
-| `05_modin_ray`                 |             |                     |                       NA |
-| `06_polars_read_csv`           |             |                     |                       NA |
-| `06_polars_scan_csv`           |             |                     |                       NA |
-| `06_polars_scan_csv_streaming` |             |                     |                       NA |
-| `07_duckdb`                    |             |                     |                       NA |
-| `07_duckdb_parallel`           |             |                     |                       NA |
+| `00_native_DictReader`         |     101.269 |              83.512 |                   82.903 |
+| `01_native_split`              |      39.000 |              34.298 |                   34.238 |
+| `02_native_read_text`          |      44.142 |              39.021 |                   38.117 |
+| `03_pandas`                    |      23.862 |              21.267 |                       NA |
+| `03_pandas_pyarrow`            |       8.795 |               8.499 |                       NA |
+| `04_dask`                      |      17.459 |              16.741 |                       NA |
+| `04_dask_pyarrow`              |       7.098 |               7.034 |                       NA |
+| `05_modin_ray`                 |      25.509 |              24.055 |                       NA |
+| `06_polars_read_csv`           |       4.318 |               4.343 |                       NA |
+| `06_polars_scan_csv`           |       4.698 |               4.642 |                       NA |
+| `06_polars_scan_csv_streaming` |       2.909 |               2.931 |                       NA |
+| `07_duckdb`                    |       2.231 |               2.304 |                       NA |
+| `07_duckdb_parallel`           |       2.583 |               2.558 |                       NA |
 
 ### Conditions
 
 - Python version: 3.12.3
-  - Exception: `04_modin` uses 3.11.9 because `ray` needs it
+  - Exception: `05_modin_ray` uses 3.11.9 because `ray` needs it
 - CPU: 12th Gen Intel® Core™ i7-1255U × 12
 - RAM: 16.0 GiB
 - Hard Drive: WD PC SN560 SDDPNQE-1T00-1006 (SSD)
