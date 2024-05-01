@@ -24,10 +24,12 @@ The sample size is 100_000_000.
 | `03_pandas_pyarrow`            |   8.8102804387000100 |  8.3487482031000580 |                       NA |
 | `04_dask`                      |  17.6968689788996940 | 17.0897760238998660 |                       NA |
 | `04_dask_pyarrow`              |   7.4737623227994850 |  7.4544295981995670 |                       NA |
-| `05_modin_ray`                 |  26.5887451761998830 |  24.758907068000006 |                       NA |
+| `05_modin_ray`                 |  26.5887451761998830 | 24.7589070680000060 |                       NA |
 | `06_polars_read_csv`           |   4.8700010490000750 |  4.8267042113001480 |                       NA |
 | `06_polars_scan_csv`           |   5.1010372745000490 |  4.8729900201999050 |                       NA |
 | `06_polars_scan_csv_streaming` |   2.9765750913000373 |  2.9723517919000186 |                       NA |
+| `07_duckdb`                    |   2.2371692372002143 |  2.2268917563000286 |                       NA |
+| `07_duckdb_parallel`           |   2.5806502976003687 |  2.5366062677998342 |                       NA |
 
 ### Conditions
 
@@ -56,6 +58,8 @@ The sample size is 100_000_000.
 - `06_polars_read_csv`: uses the [polars](https://pypi.org/project/polars/) library, designed for efficient data manipulation and analysis using [Rust](https://www.rust-lang.org/) and [Apache Arrow Columnar Format](https://arrow.apache.org/docs/format/Columnar.html); reads the entire csv data into memory with `pl.read_csv()`, then uses `df.group_by()` to group the stations, and finally aggregates the temperatures with `df_gb.agg(min, mean, max)`
 - `06_polars_scan_csv`: variant of `06_polars_read_csv` that uses `pl.scan_csv()` instead of `pl.read_csv()` for a lazy evaluation
 - `06_polars_scan_csv_streaming`: variant of `06_polars_scan_csv` that uses `collect(streaming=True)` to process the query in batches to handle larger-than-memory data
+- `07_duckdb`: uses [duckdb](https://duckdb.org/) as an in-process analytical database; reads the csv data through `duckdb.read_csv()` and then simply groups and aggregates for `min, avg, max`
+- `07_duckdb_parallel`: variant of `07_duckdb` that uses `duckdb.read_csv(parallel=True)` for parallel processing
 
 ### Python Implementations
 

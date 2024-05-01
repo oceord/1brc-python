@@ -11,6 +11,7 @@ pyarrow = "*"
 dask = {extras = ["dataframe"] }
 modin = {extras = ["dask"], version = "*"}
 polars = "*"
+duckdb = "*"
 
 [dev-packages]
 onebrc = {file = ".", editable = true}

@@ -9,7 +9,7 @@
 - [x] Dask
 - [x] Modin
 - [x] Polars
-- [ ] DuckDB
+- [x] DuckDB
 - [ ] Numpy
 - [ ] Pyarrow
 - [ ] Numba

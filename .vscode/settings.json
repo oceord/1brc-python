@@ -21,6 +21,7 @@
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "cSpell.words": [
+        "aggr",
         "astype",
         "cpython",
         "ctypes",
@@ -29,6 +30,7 @@
         "dataframe",
         "dedups",
         "dtype",
+        "duckdb",
         "groupby",
         "loadtxt",
         "Modin",
