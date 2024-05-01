@@ -16,9 +16,10 @@ def _main(path):
         )
         .groupby(0)
         .agg(["min", "mean", "max"])
+        .round({(1, "mean"): 1})
+        .astype(str)
         .apply(
-            lambda row: f"{row.name}="
-            + "/".join(str(round(v, 1)) for v in row.to_numpy()),
+            lambda row: f"{row.name}=" + "/".join(v for v in row.to_numpy()),
             axis=1,
             result_type="reduce",
         )

@@ -13,23 +13,24 @@ These benchmarks are the Average Execution Time (AET) in seconds for 10 executio
 Please refer to [exec_logs](./exec_logs/) for the execution log of these benchmarks.
 It is possible for each solution to be applied to different constraints, such as Python implementations.
 Please refer to [Python Implementations](#python-implementations) for more information on the variants used.
-The sample size is 100_000_000.
 
-| Solution                       |          CPython AET | CPython_PerfOpt AET | CPython_PerfOpt NoGC AET |
-| :----------------------------- | -------------------: | ------------------: | -----------------------: |
-| `00_native_DictReader`         | 103.5024992948000000 | 84.7618062428001300 |       84.535680547699940 |
-| `01_native_split`              |  40.4640003209999600 | 34.2665251072999100 |       34.461449691899910 |
-| `02_native_read_text`          |  43.9490607891999400 | 40.3054384241000700 |       38.031868851099986 |
-| `03_pandas`                    |  23.9660524116000500 | 21.5296436360998100 |                       NA |
-| `03_pandas_pyarrow`            |   8.8102804387000100 |  8.3487482031000580 |                       NA |
-| `04_dask`                      |  17.6968689788996940 | 17.0897760238998660 |                       NA |
-| `04_dask_pyarrow`              |   7.4737623227994850 |  7.4544295981995670 |                       NA |
-| `05_modin_ray`                 |  26.5887451761998830 | 24.7589070680000060 |                       NA |
-| `06_polars_read_csv`           |   4.8700010490000750 |  4.8267042113001480 |                       NA |
-| `06_polars_scan_csv`           |   5.1010372745000490 |  4.8729900201999050 |                       NA |
-| `06_polars_scan_csv_streaming` |   2.9765750913000373 |  2.9723517919000186 |                       NA |
-| `07_duckdb`                    |   2.2371692372002143 |  2.2268917563000286 |                       NA |
-| `07_duckdb_parallel`           |   2.5806502976003687 |  2.5366062677998342 |                       NA |
+### Sample Size: 100_000_000
+
+| Solution                       | CPython AET | CPython_PerfOpt AET | CPython_PerfOpt NoGC AET |
+| :----------------------------- | ----------: | ------------------: | -----------------------: |
+| `00_native_DictReader`         |             |                     |                          |
+| `01_native_split`              |             |                     |                          |
+| `02_native_read_text`          |             |                     |                          |
+| `03_pandas`                    |             |                     |                       NA |
+| `03_pandas_pyarrow`            |             |                     |                       NA |
+| `04_dask`                      |             |                     |                       NA |
+| `04_dask_pyarrow`              |             |                     |                       NA |
+| `05_modin_ray`                 |             |                     |                       NA |
+| `06_polars_read_csv`           |             |                     |                       NA |
+| `06_polars_scan_csv`           |             |                     |                       NA |
+| `06_polars_scan_csv_streaming` |             |                     |                       NA |
+| `07_duckdb`                    |             |                     |                       NA |
+| `07_duckdb_parallel`           |             |                     |                       NA |
 
 ### Conditions
 

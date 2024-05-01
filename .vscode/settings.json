@@ -35,6 +35,7 @@
         "loadtxt",
         "Modin",
         "mrjob",
+        "ndigits",
         "njit",
         "Numba",
         "Numpy",

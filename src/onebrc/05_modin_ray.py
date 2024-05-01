@@ -2,6 +2,7 @@ import sys
 from pathlib import Path
 
 import modin.pandas as pd
+import numpy as np
 
 from onebrc.decorators.timeit import timeit, timeit_avg
 
@@ -12,13 +13,14 @@ def _main(path):
             path,
             sep=";",
             header=None,
-            dtype={0: str, 1: float},
+            dtype={0: np.str_, 1: np.float32},
         )
         .groupby(0)
         .agg(["min", "mean", "max"])
+        .round({(1, "mean"): 1})
+        .astype(np.str_)
         .apply(
-            lambda row: f"{row.name}="
-            + "/".join(str(round(v, 1)) for v in row.to_numpy()),
+            lambda row: f"{row.name}=" + "/".join((v) for v in row.to_numpy()),
             axis=1,
             result_type="reduce",
         )

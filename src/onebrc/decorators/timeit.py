@@ -1,5 +1,6 @@
 import inspect
 import time
+from math import ceil
 from statistics import mean
 
 
@@ -9,7 +10,7 @@ def timeit(func):
         start_time = time.perf_counter()
         result = func(*args, **kwargs)
         end_time = time.perf_counter()
-        execution_time = end_time - start_time  # seconds
+        execution_time = decimal_ceil(end_time - start_time, 3)  # seconds
         print("Module:")
         print(f"    {func_module}.{func.__name__}")
         print("ExecTime:")
@@ -30,13 +31,20 @@ def timeit_avg(func):
             end_time = time.perf_counter()
             execution_time = end_time - start_time  # seconds
             exec_times.append(execution_time)
-        avg_execution_time = mean(exec_times)
+        avg_execution_time = decimal_ceil(mean(exec_times), 3)
         print("Module:")
         print(f"    {func_module}.{func.__name__}")
         print("AvgExecTime:")
         print(f"    {avg_execution_time}")
         print("ExecTimes:")
-        print("    " + "\n    ".join(str(t) for t in sorted(exec_times)) + "\n")
+        print(
+            "    " + "\n    ".join(str(t) for t in sorted(exec_times)) + "\n",
+        )
         return result
 
     return wrapper
+
+
+def decimal_ceil(number, ndigits):
+    multiplier = 10**ndigits
+    return ceil(number * multiplier) / multiplier
