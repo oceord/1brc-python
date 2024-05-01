@@ -16,9 +16,9 @@ def _main(path):
         )
         .group_by("column_1")
         .agg(
-            pl.col("column_2").min().alias("min"),
-            pl.col("column_2").mean().alias("mean"),
-            pl.col("column_2").max().alias("max"),
+            pl.min("column_2").alias("min"),
+            pl.mean("column_2").alias("mean"),
+            pl.max("column_2").alias("max"),
         )
         .collect()
         .map_rows(
