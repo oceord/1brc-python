@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-docker run --privileged --rm -it \
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
+docker run --privileged --rm -it --shm-size=8gb \
     -v /home/oceord/Dev/1brc-python/test_data:/onebrc/test_data \
     --name onebrc-cpython onebrc-cpython \
-    make run-pandas-100t-docker
+    make run-pandas-100t-docker | tee "$SCRIPT_DIR/../exec_logs/CPython_Pandas.log"
