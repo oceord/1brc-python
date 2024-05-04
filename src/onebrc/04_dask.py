@@ -1,6 +1,6 @@
 import dask.dataframe as dd
 
-from onebrc.decorators.timeit import timeit
+from onebrc.decorators.timeit import exec_func, timeit
 
 
 def _main(path):
@@ -29,6 +29,7 @@ def _main(path):
 
 
 def main(path, number_of_execs, timeout):
+    exec_func(_main, timeout, path)
     timeit(number_of_execs=number_of_execs, timeout=timeout)(_main)(path)
 
 

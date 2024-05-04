@@ -7,7 +7,7 @@ from statistics import mean
 TIMEOUT = 120
 
 
-def _timeit(func, timeout=TIMEOUT, *args, **kwargs):
+def exec_func(func, timeout=TIMEOUT, *args, **kwargs):
     signal.signal(signal.SIGALRM, _signal_handler)
     signal.setitimer(signal.ITIMER_REAL, timeout)
     try:
@@ -32,7 +32,7 @@ def timeit(number_of_execs, timeout=TIMEOUT):
                 :-3
             ]
             for _ in range(number_of_execs):
-                result, exec_time = _timeit(func, timeout, *args, **kwargs)
+                result, exec_time = exec_func(func, timeout, *args, **kwargs)
                 exec_times.append(exec_time)
             avg_exec_time = dceil(mean(exec_times), 3) if all(exec_times) else None
             print("Module:")
