@@ -31,6 +31,7 @@
         "dedups",
         "dtype",
         "duckdb",
+        "genfromtxt",
         "groupby",
         "loadtxt",
         "Modin",

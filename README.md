@@ -13,8 +13,11 @@ These benchmarks are the Average Execution Time (AET) in seconds for 10 executio
 Please refer to [exec_logs](./exec_logs/) for the execution log of these benchmarks.
 It is possible for each solution to be applied to different constraints, such as Python implementations.
 Please refer to [Python Implementations](#python-implementations) for more information on the variants used.
+Solution that did not finish execution are identified with DNF.
 
 ### Sample Size: 100_000_000
+
+Timeout: 30 minutes
 
 | Solution                       | CPython AET | CPython_PerfOpt AET | CPython_PerfOpt NoGC AET |
 | :----------------------------- | ----------: | ------------------: | -----------------------: |
@@ -31,6 +34,8 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 | `06_polars_scan_csv_streaming` |       2.909 |               2.931 |                       NA |
 | `07_duckdb`                    |       2.231 |               2.304 |                       NA |
 | `07_duckdb_parallel`           |       2.583 |               2.558 |                       NA |
+| `08_numpy`                     |         DNF |                 DNF |                       NA |
+| `09_pyarrow`                   |       1.507 |               1.509 |                       NA |
 
 ### Conditions
 
@@ -61,6 +66,8 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 - `06_polars_scan_csv_streaming`: variant of `06_polars_scan_csv` that uses `collect(streaming=True)` to process the query in batches to handle larger-than-memory data
 - `07_duckdb`: uses [duckdb](https://duckdb.org/) as an in-process analytical database; reads the csv data through `duckdb.read_csv()` and then simply groups and aggregates for `min, avg, max`
 - `07_duckdb_parallel`: variant of `07_duckdb` that uses `duckdb.read_csv(parallel=True)` for parallel processing
+- `08_numpy`: reads the csv data with `pandas.read_csv()`, converts the dataframe using `df.to_numpy()`, computes the unique stations, iterates over each unique one, filters the data for it, and then calculates the min, average, and max
+- `09_pyarrow`: uses the [pyarrow](https://pypi.org/project/pyarrow/) engine to read the csv with `pyarrow.csv.read_csv()`, groups by station, aggregates for `min, avg, max`, and finally joins all columns into a single one
 
 ### Python Implementations
 

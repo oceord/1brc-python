@@ -10,8 +10,8 @@
 - [x] Modin
 - [x] Polars
 - [x] DuckDB
-- [ ] Numpy
-- [ ] Pyarrow
+- [x] Numpy
+- [x] Pyarrow
 - [ ] Numba
 - [ ] mrjob
 
