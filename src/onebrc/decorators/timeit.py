@@ -36,7 +36,7 @@ def timeit(number_of_execs, timeout=TIMEOUT):
                 exec_times.append(exec_time)
             avg_exec_time = dceil(mean(exec_times), 3) if all(exec_times) else None
             print("Module:")
-            print(f"    {func_module}.{func.__name__}")
+            print(f"    {func_module}")
             print("AvgExecTime:")
             print(f"    {avg_exec_time}")
             print("ExecTimes:")
