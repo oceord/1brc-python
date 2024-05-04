@@ -1,9 +1,6 @@
-import sys
-from pathlib import Path
-
 import pandas as pd
 
-from onebrc.decorators.timeit import timeit, timeit_avg
+from onebrc.decorators.timeit import timeit
 
 
 def _main(path):
@@ -29,18 +26,17 @@ def _main(path):
     # print(*res, sep=", ")
 
 
-@timeit
-def main(path):
-    _main(path)
-
-
-@timeit_avg
-def main_10(path):
-    _main(path)
+def main(path, number_of_execs, timeout):
+    timeit(number_of_execs=number_of_execs, timeout=timeout)(_main)(path)
 
 
 if __name__ == "__main__":
-    if "--avg" in sys.argv:
-        main_10(Path(sys.argv[1]))
-    else:
-        main(Path(sys.argv[1]))
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path")
+    parser.add_argument("--avg", type=int, required=True)
+    parser.add_argument("-t", "--timeout", type=int, required=True)
+    args = parser.parse_args()
+
+    main(args.path, args.avg, args.timeout)

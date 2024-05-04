@@ -61,75 +61,75 @@ docker-build-modin: ## Build all Dockerfile images for onebrc
 	@docker build -f dockerfiles/cpython_perf.modin.Dockerfile -t onebrc-cpython_perf-modin .
 
 run-cpython-100t-docker: ## Run all modules inside a docker container using 100t.txt
-	@python -m onebrc.00_native_DictReader /onebrc/test_data/100t.txt --avg
-	@python -m onebrc.01_native_split /onebrc/test_data/100t.txt --avg
-	@python -m onebrc.02_native_read_text /onebrc/test_data/100t.txt --avg
+	@python -m onebrc.00_native_DictReader /onebrc/test_data/100t.txt --avg 10 -t 120
+	@python -m onebrc.01_native_split /onebrc/test_data/100t.txt --avg 10 -t 120
+	@python -m onebrc.02_native_read_text /onebrc/test_data/100t.txt --avg 10 -t 120
 
 run-cpython-100m-docker: ## Run all modules inside a docker container using 100m.txt
-	@python -m onebrc.00_native_DictReader /onebrc/test_data/100m.txt --avg
-	@python -m onebrc.01_native_split /onebrc/test_data/100m.txt --avg
-	@python -m onebrc.02_native_read_text /onebrc/test_data/100m.txt --avg
+	@python -m onebrc.00_native_DictReader /onebrc/test_data/100m.txt --avg 10 -t 120
+	@python -m onebrc.01_native_split /onebrc/test_data/100m.txt --avg 10 -t 120
+	@python -m onebrc.02_native_read_text /onebrc/test_data/100m.txt --avg 10 -t 120
 
 run-cpython-no-gc-100t-docker: ## Run all modules inside a docker container using 100t.txt
-	@python -m onebrc.00_native_DictReader_no_gc /onebrc/test_data/100t.txt --avg
-	@python -m onebrc.01_native_split_no_gc /onebrc/test_data/100t.txt --avg
-	@python -m onebrc.02_native_read_text_no_gc /onebrc/test_data/100t.txt --avg
+	@python -m onebrc.00_native_DictReader_no_gc /onebrc/test_data/100t.txt --avg 10 -t 120
+	@python -m onebrc.01_native_split_no_gc /onebrc/test_data/100t.txt --avg 10 -t 120
+	@python -m onebrc.02_native_read_text_no_gc /onebrc/test_data/100t.txt --avg 10 -t 120
 
 run-cpython-no-gc-100m-docker: ## Run all modules inside a docker container using 100m.txt
-	@python -m onebrc.00_native_DictReader_no_gc /onebrc/test_data/100m.txt --avg
-	@python -m onebrc.01_native_split_no_gc /onebrc/test_data/100m.txt --avg
-	@python -m onebrc.02_native_read_text_no_gc /onebrc/test_data/100m.txt --avg
+	@python -m onebrc.00_native_DictReader_no_gc /onebrc/test_data/100m.txt --avg 10 -t 120
+	@python -m onebrc.01_native_split_no_gc /onebrc/test_data/100m.txt --avg 10 -t 120
+	@python -m onebrc.02_native_read_text_no_gc /onebrc/test_data/100m.txt --avg 10 -t 120
 
 run-pandas-100t-docker: ## Run all modules inside a docker container using 100t.txt
-	@python -m onebrc.03_pandas /onebrc/test_data/100t.txt --avg
-	@python -m onebrc.03_pandas_pyarrow /onebrc/test_data/100t.txt --avg
+	@python -m onebrc.03_pandas /onebrc/test_data/100t.txt --avg 10 -t 120
+	@python -m onebrc.03_pandas_pyarrow /onebrc/test_data/100t.txt --avg 10 -t 120
 
 run-pandas-100m-docker: ## Run all modules inside a docker container using 100m.txt
-	@python -m onebrc.03_pandas /onebrc/test_data/100m.txt --avg
-	@python -m onebrc.03_pandas_pyarrow /onebrc/test_data/100m.txt --avg
+	@python -m onebrc.03_pandas /onebrc/test_data/100m.txt --avg 10 -t 120
+	@python -m onebrc.03_pandas_pyarrow /onebrc/test_data/100m.txt --avg 10 -t 120
 
 run-dask-100t-docker: ## Run all modules inside a docker container using 100t.txt
-	@python -m onebrc.04_dask /onebrc/test_data/100t.txt --avg
-	@python -m onebrc.04_dask_pyarrow /onebrc/test_data/100t.txt --avg
+	@python -m onebrc.04_dask /onebrc/test_data/100t.txt --avg 10 -t 120
+	@python -m onebrc.04_dask_pyarrow /onebrc/test_data/100t.txt --avg 10 -t 120
 
 run-dask-100m-docker: ## Run all modules inside a docker container using 100m.txt
-	@python -m onebrc.04_dask /onebrc/test_data/100m.txt --avg
-	@python -m onebrc.04_dask_pyarrow /onebrc/test_data/100m.txt --avg
+	@python -m onebrc.04_dask /onebrc/test_data/100m.txt --avg 10 -t 120
+	@python -m onebrc.04_dask_pyarrow /onebrc/test_data/100m.txt --avg 10 -t 120
 
 run-modin-ray-100t-docker: ## Run all modules inside a docker container using 100t.txt
-	@MODIN_ENGINE=ray python -m onebrc.05_modin_ray /onebrc/test_data/100t.txt --avg
+	@MODIN_ENGINE=ray python -m onebrc.05_modin_ray /onebrc/test_data/100t.txt --avg 10 -t 120
 
 run-modin-ray-100m-docker: ## Run all modules inside a docker container using 100m.txt
-	@MODIN_ENGINE=ray python -m onebrc.05_modin_ray /onebrc/test_data/100m.txt --avg
+	@MODIN_ENGINE=ray python -m onebrc.05_modin_ray /onebrc/test_data/100m.txt --avg 10 -t 120
 
 run-polars-100t-docker: ## Run all modules inside a docker container using 100t.txt
-	@python -m onebrc.06_polars_read_csv /onebrc/test_data/100t.txt --avg
-	@python -m onebrc.06_polars_scan_csv /onebrc/test_data/100t.txt --avg
-	@python -m onebrc.06_polars_scan_csv_streaming /onebrc/test_data/100t.txt --avg
+	@python -m onebrc.06_polars_read_csv /onebrc/test_data/100t.txt --avg 10 -t 120
+	@python -m onebrc.06_polars_scan_csv /onebrc/test_data/100t.txt --avg 10 -t 120
+	@python -m onebrc.06_polars_scan_csv_streaming /onebrc/test_data/100t.txt --avg 10 -t 120
 
 run-polars-100m-docker: ## Run all modules inside a docker container using 100m.txt
-	@python -m onebrc.06_polars_read_csv /onebrc/test_data/100m.txt --avg
-	@python -m onebrc.06_polars_scan_csv /onebrc/test_data/100m.txt --avg
-	@python -m onebrc.06_polars_scan_csv_streaming /onebrc/test_data/100m.txt --avg
+	@python -m onebrc.06_polars_read_csv /onebrc/test_data/100m.txt --avg 10 -t 120
+	@python -m onebrc.06_polars_scan_csv /onebrc/test_data/100m.txt --avg 10 -t 120
+	@python -m onebrc.06_polars_scan_csv_streaming /onebrc/test_data/100m.txt --avg 10 -t 120
 
 run-duckdb-100t-docker: ## Run all modules inside a docker container using 100t.txt
-	@python -m onebrc.07_duckdb /onebrc/test_data/100t.txt --avg
-	@python -m onebrc.07_duckdb_parallel /onebrc/test_data/100t.txt --avg
+	@python -m onebrc.07_duckdb /onebrc/test_data/100t.txt --avg 10 -t 120
+	@python -m onebrc.07_duckdb_parallel /onebrc/test_data/100t.txt --avg 10 -t 120
 
 run-duckdb-100m-docker: ## Run all modules inside a docker container using 100m.txt
-	@python -m onebrc.07_duckdb /onebrc/test_data/100m.txt --avg
-	@python -m onebrc.07_duckdb_parallel /onebrc/test_data/100m.txt --avg
+	@python -m onebrc.07_duckdb /onebrc/test_data/100m.txt --avg 10 -t 120
+	@python -m onebrc.07_duckdb_parallel /onebrc/test_data/100m.txt --avg 10 -t 120
 
 run-numpy-100t-docker: ## Run all modules inside a docker container using 100t.txt
-	@python -m onebrc.08_numpy_str /onebrc/test_data/100t.txt --avg
-	@python -m onebrc.08_numpy_int /onebrc/test_data/100t_int.txt --avg
+	@python -m onebrc.08_numpy_str /onebrc/test_data/100t.txt --avg 10 -t 120
+	@python -m onebrc.08_numpy_int /onebrc/test_data/100t_int.txt --avg 10 -t 120
 
 run-numpy-100m-docker: ## Run all modules inside a docker container using 100m.txt
-	@python -m onebrc.08_numpy_str /onebrc/test_data/100m.txt --avg
-	@python -m onebrc.08_numpy_int /onebrc/test_data/100m_int.txt --avg
+	@python -m onebrc.08_numpy_str /onebrc/test_data/100m.txt --avg 10 -t 120
+	@python -m onebrc.08_numpy_int /onebrc/test_data/100m_int.txt --avg 10 -t 120
 
 run-pyarrow-100t-docker: ## Run all modules inside a docker container using 100t.txt
-	@python -m onebrc.09_pyarrow /onebrc/test_data/100t.txt --avg
+	@python -m onebrc.09_pyarrow /onebrc/test_data/100t.txt --avg 10 -t 120
 
 run-pyarrow-100m-docker: ## Run all modules inside a docker container using 100m.txt
-	@python -m onebrc.09_pyarrow /onebrc/test_data/100m.txt --avg
+	@python -m onebrc.09_pyarrow /onebrc/test_data/100m.txt --avg 10 -t 120

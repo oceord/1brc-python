@@ -11,7 +11,11 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args": [
-                "/workspaces/1brc-python/test_data/100t.txt"
+                "/workspaces/1brc-python/test_data/100t.txt",
+                "--avg",
+                "1",
+                "-t",
+                "5"
             ]
         },
         {
@@ -23,7 +27,24 @@
             "args": [
                 "/workspaces/1brc-python/test_data/100t.txt",
                 "--avg",
+                "10",
+                "-t",
+                "5"
             ]
-        }
+        },
+        {
+            "name": "CurrFile_int",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "/workspaces/1brc-python/test_data/100t_int.txt",
+                "--avg",
+                "10",
+                "-t",
+                "5"
+            ]
+        },
     ]
 }

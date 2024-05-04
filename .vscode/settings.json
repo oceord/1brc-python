@@ -28,11 +28,13 @@
         "cyphon",
         "Dask",
         "dataframe",
+        "dceil",
         "dedups",
         "dtype",
         "duckdb",
         "genfromtxt",
         "groupby",
+        "ITIMER",
         "loadtxt",
         "Modin",
         "mrjob",
@@ -43,6 +45,8 @@
         "onebrc",
         "pyarrow",
         "SDDPNQE",
+        "setitimer",
+        "SIGALRM",
         "Stackless"
     ]
 }
