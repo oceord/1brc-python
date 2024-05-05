@@ -17,25 +17,25 @@ Solution that did not finish execution are identified with DNF.
 
 ### Sample Size: 100_000_000
 
-Timeout: 30 minutes
+Individual execution timeout: 2 minutes
 
 | Solution                       | CPython AET | CPython_PerfOpt AET | CPython_PerfOpt NoGC AET |
 | :----------------------------- | ----------: | ------------------: | -----------------------: |
-| `00_native_DictReader`         |     101.269 |              83.512 |                   82.903 |
-| `01_native_split`              |      39.000 |              34.298 |                   34.238 |
-| `02_native_read_text`          |      44.142 |              39.021 |                   38.117 |
-| `03_pandas`                    |      23.862 |              21.267 |                       NA |
-| `03_pandas_pyarrow`            |       8.795 |               8.499 |                       NA |
-| `04_dask`                      |      17.459 |              16.741 |                       NA |
-| `04_dask_pyarrow`              |       7.098 |               7.034 |                       NA |
-| `05_modin_ray`                 |      25.509 |              24.055 |                       NA |
-| `06_polars_read_csv`           |       4.318 |               4.343 |                       NA |
-| `06_polars_scan_csv`           |       4.698 |               4.642 |                       NA |
-| `06_polars_scan_csv_streaming` |       2.909 |               2.931 |                       NA |
-| `07_duckdb`                    |       2.231 |               2.304 |                       NA |
-| `07_duckdb_parallel`           |       2.583 |               2.558 |                       NA |
+| `00_native_DictReader`         |     100.426 |              83.278 |                   83.206 |
+| `01_native_split`              |      39.573 |              34.641 |                   34.648 |
+| `02_native_read_text`          |      43.138 |              38.062 |                   37.511 |
+| `03_pandas`                    |      23.991 |              20.993 |                       NA |
+| `03_pandas_pyarrow`            |       8.608 |               8.129 |                       NA |
+| `04_dask`                      |      17.161 |              16.589 |                       NA |
+| `04_dask_pyarrow`              |       6.933 |               6.944 |                       NA |
+| `05_modin_ray`                 |      25.510 |              23.954 |                       NA |
+| `06_polars_read_csv`           |       4.316 |               4.368 |                       NA |
+| `06_polars_scan_csv`           |       4.609 |               4.613 |                       NA |
+| `06_polars_scan_csv_streaming` |       2.900 |               2.896 |                       NA |
+| `07_duckdb`                    |       2.229 |               2.225 |                       NA |
+| `07_duckdb_parallel`           |       2.577 |               2.592 |                       NA |
 | `08_numpy`                     |         DNF |                 DNF |                       NA |
-| `09_pyarrow`                   |       1.507 |               1.509 |                       NA |
+| `09_pyarrow`                   |       1.520 |               1.489 |                       NA |
 
 ### Conditions
 
