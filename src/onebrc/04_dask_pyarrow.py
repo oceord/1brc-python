@@ -24,7 +24,6 @@ def _main(path):
             result_type="reduce",
         )
         .compute()
-        .to_list()
     )
     # print(*res, sep=", ")
 

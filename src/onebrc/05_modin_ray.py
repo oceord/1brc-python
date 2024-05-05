@@ -21,8 +21,6 @@ def _main(path):
             axis=1,
             result_type="reduce",
         )
-        .to_numpy()
-        .tolist()
     )
     # print(*res, sep=", ")
 

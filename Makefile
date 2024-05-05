@@ -121,12 +121,10 @@ run-duckdb-100m-docker: ## Run all modules inside a docker container using 100m.
 	@python -m onebrc.07_duckdb_parallel /onebrc/test_data/100m.txt --avg 10 -t 120
 
 run-numpy-100t-docker: ## Run all modules inside a docker container using 100t.txt
-	@python -m onebrc.08_numpy_str /onebrc/test_data/100t.txt --avg 10 -t 120
-	@python -m onebrc.08_numpy_int /onebrc/test_data/100t_int.txt --avg 10 -t 120
+	@python -m onebrc.08_numpy /onebrc/test_data/100t.txt --avg 10 -t 120
 
 run-numpy-100m-docker: ## Run all modules inside a docker container using 100m.txt
-	@python -m onebrc.08_numpy_str /onebrc/test_data/100m.txt --avg 10 -t 120
-	@python -m onebrc.08_numpy_int /onebrc/test_data/100m_int.txt --avg 10 -t 120
+	@python -m onebrc.08_numpy /onebrc/test_data/100m.txt --avg 10 -t 120
 
 run-pyarrow-100t-docker: ## Run all modules inside a docker container using 100t.txt
 	@python -m onebrc.09_pyarrow /onebrc/test_data/100t.txt --avg 10 -t 120

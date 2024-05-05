@@ -20,7 +20,6 @@ def _main(path):
             axis=1,
             result_type="reduce",
         )
-        .to_list()
     )
     # print(*res, sep=", ")
 
