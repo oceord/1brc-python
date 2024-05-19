@@ -2,7 +2,7 @@ import inspect
 import signal
 import time
 from math import ceil
-from statistics import mean
+from statistics import mean, variance
 
 TIMEOUT = 120
 
@@ -35,10 +35,15 @@ def timeit(number_of_execs, timeout=TIMEOUT):
                 result, exec_time = exec_func(func, timeout, *args, **kwargs)
                 exec_times.append(exec_time)
             avg_exec_time = dceil(mean(exec_times), 3) if all(exec_times) else None
+            exec_time_variance = (
+                variance(exec_times)
+                if len(exec_times) > 1 and all(exec_times)
+                else None
+            )
             print("Module:")
             print(f"    {func_module}")
-            print("AvgExecTime:")
-            print(f"    {avg_exec_time}")
+            print("AvgExecTime (Variance):")
+            print(f"    {avg_exec_time} / {exec_time_variance}")
             print("ExecTimes:")
             print(
                 "    "
