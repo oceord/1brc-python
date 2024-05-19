@@ -42,16 +42,16 @@ def timeit(number_of_execs, timeout=TIMEOUT):
             )
             print("Module:")
             print(f"    {func_module}")
-            print("AvgExecTime (Variance):")
+            print("AvgExecTime / Variance:")
             print(f"    {avg_exec_time} / {exec_time_variance}")
             print("ExecTimes:")
             print(
                 "    "
                 + "\n    ".join(
-                    str(t)
-                    for t in sorted(
-                        exec_times,
-                        key=lambda x: x if x is not None else -1,
+                    f"({i}) {t}"
+                    for i, t in sorted(
+                        enumerate(exec_times),
+                        key=lambda x: x[1] if x[1] is not None else -1,
                     )
                 )
                 + "\n",
