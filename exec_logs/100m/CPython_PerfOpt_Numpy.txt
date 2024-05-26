@@ -1,15 +1,15 @@
 Module:
     onebrc.08_numpy
-AvgExecTime:
-    None
+AvgExecTime / Variance:
+    None / None
 ExecTimes:
-    None
-    None
-    None
-    None
-    None
-    None
-    None
-    None
-    None
-    None
+    (0) None
+    (1) None
+    (2) None
+    (3) None
+    (4) None
+    (5) None
+    (6) None
+    (7) None
+    (8) None
+    (9) None

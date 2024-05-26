@@ -112,6 +112,16 @@ run-polars-100m-docker: ## Run all modules inside a docker container using 100m.
 	@python -m onebrc.06_polars_scan_csv /onebrc/test_data/100m.txt --avg 10 -t 120
 	@python -m onebrc.06_polars_scan_csv_streaming /onebrc/test_data/100m.txt --avg 10 -t 120
 
+run-polars-200m-docker: ## Run all modules inside a docker container using 200m.txt
+	@python -m onebrc.06_polars_read_csv /onebrc/test_data/200m.txt --avg 10 -t 120; \
+		python -m onebrc.06_polars_scan_csv /onebrc/test_data/200m.txt --avg 10 -t 120; \
+		python -m onebrc.06_polars_scan_csv_streaming /onebrc/test_data/200m.txt --avg 10 -t 120
+
+run-polars-1b-docker: ## Run all modules inside a docker container using 1b.txt
+	@python -m onebrc.06_polars_read_csv /onebrc/test_data/1b.txt --avg 10 -t 120; \
+		python -m onebrc.06_polars_scan_csv /onebrc/test_data/1b.txt --avg 10 -t 120; \
+		python -m onebrc.06_polars_scan_csv_streaming /onebrc/test_data/1b.txt --avg 10 -t 120
+
 run-duckdb-100t-docker: ## Run all modules inside a docker container using 100t.txt
 	@python -m onebrc.07_duckdb /onebrc/test_data/100t.txt --avg 10 -t 120
 	@python -m onebrc.07_duckdb_parallel /onebrc/test_data/100t.txt --avg 10 -t 120
@@ -119,6 +129,14 @@ run-duckdb-100t-docker: ## Run all modules inside a docker container using 100t.
 run-duckdb-100m-docker: ## Run all modules inside a docker container using 100m.txt
 	@python -m onebrc.07_duckdb /onebrc/test_data/100m.txt --avg 10 -t 120
 	@python -m onebrc.07_duckdb_parallel /onebrc/test_data/100m.txt --avg 10 -t 120
+
+run-duckdb-200m-docker: ## Run all modules inside a docker container using 200m.txt
+	@python -m onebrc.07_duckdb /onebrc/test_data/200m.txt --avg 10 -t 120; \
+		python -m onebrc.07_duckdb_parallel /onebrc/test_data/200m.txt --avg 10 -t 120
+
+run-duckdb-1b-docker: ## Run all modules inside a docker container using 1b.txt
+	@python -m onebrc.07_duckdb /onebrc/test_data/1b.txt --avg 10 -t 120; \
+		python -m onebrc.07_duckdb_parallel /onebrc/test_data/1b.txt --avg 10 -t 120
 
 run-numpy-100t-docker: ## Run all modules inside a docker container using 100t.txt
 	@python -m onebrc.08_numpy /onebrc/test_data/100t.txt --avg 10 -t 120
@@ -131,3 +149,9 @@ run-pyarrow-100t-docker: ## Run all modules inside a docker container using 100t
 
 run-pyarrow-100m-docker: ## Run all modules inside a docker container using 100m.txt
 	@python -m onebrc.09_pyarrow /onebrc/test_data/100m.txt --avg 10 -t 120
+
+run-pyarrow-200m-docker: ## Run all modules inside a docker container using 200m.txt;
+	@python -m onebrc.09_pyarrow /onebrc/test_data/200m.txt --avg 10 -t 120
+
+run-pyarrow-1b-docker: ## Run all modules inside a docker container using 1b.txt;
+	@python -m onebrc.09_pyarrow /onebrc/test_data/1b.txt --avg 10 -t 120

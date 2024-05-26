@@ -36,7 +36,7 @@ def timeit(number_of_execs, timeout=TIMEOUT):
                 exec_times.append(exec_time)
             avg_exec_time = dceil(mean(exec_times), 3) if all(exec_times) else None
             exec_time_variance = (
-                variance(exec_times)
+                round(variance(exec_times), 3)
                 if len(exec_times) > 1 and all(exec_times)
                 else None
             )

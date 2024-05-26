@@ -8,34 +8,58 @@ Contrary to the rules of the challenge, external dependencies are used.
 
 ## Execution Benchmarks
 
-Next follows a table with benchmarks for all solutions.
+Next, follow benchmarks for all solutions for 3 sample sizes: 100 million, 200 million, and 1 billion.
+Only solutions that took less than 5 seconds for a sample size of 100 million were considered in samples bigger than that.
+200 million is the largest sample size that allowed all solutions to run without being killed by the Out Of Memory Killer (OOM Killer), "a process that the linux kernel employs when the system is critically low on memory" [[source](https://neo4j.com/developer/kb/linux-out-of-memory-killer/)].
+Solutions killed are marked with KILLED.
 These benchmarks are the Average Execution Time (AET) in seconds for 10 executions.
-Please refer to [exec_logs](./exec_logs/) for the execution log of these benchmarks.
-It is possible for each solution to be applied to different constraints, such as Python implementations.
+The variance (VAR) is also presented alongside each individual benchmark.
+Please refer to [exec_logs](./exec_logs/) for the full execution logs of these benchmarks.
+A timeout of 2 minutes has been set for each individual execution.
+Solutions that timed-out are identified with TIMEOUT.
 Please refer to [Python Implementations](#python-implementations) for more information on the variants used.
-Solution that did not finish execution are identified with DNF.
 
-### Sample Size: 100_000_000
+### Sample Size: 100 million (1.5G)
 
-Individual execution timeout: 2 minutes
+| Solution                       | CPython AET/VAR | CPython_PerfOpt AET/VAR | CPython_PerfOpt NoGC AET/VAR |
+| :----------------------------- | --------------: | ----------------------: | ---------------------------: |
+| `00_native_DictReader`         | 101.018 / 0.270 |          83.905 / 0.171 |                83.84 / 0.651 |
+| `01_native_split`              |  39.651 / 0.091 |          34.303 / 0.122 |               35.148 / 0.702 |
+| `02_native_read_text`          |  43.390 / 0.224 |          38.652 / 0.105 |               38.144 / 0.032 |
+| `03_pandas`                    |  23.727 / 0.034 |          21.028 / 0.009 |                           NA |
+| `03_pandas_pyarrow`            |   8.706 / 0.005 |           8.199 / 0.004 |                           NA |
+| `04_dask`                      |  17.312 / 0.009 |          16.642 / 0.009 |                           NA |
+| `04_dask_pyarrow`              |   6.989 / 0.004 |           6.932 / 0.004 |                           NA |
+| `05_modin_ray`                 |  31.191 / 0.325 |          29.237 / 0.058 |                           NA |
+| `06_polars_read_csv`           |   4.322 / 0.012 |           4.386 / 0.023 |                           NA |
+| `06_polars_scan_csv`           |   4.545 / 0.006 |           4.639 / 0.019 |                           NA |
+| `06_polars_scan_csv_streaming` |   2.454 / 0.000 |           2.457 / 0.000 |                           NA |
+| `07_duckdb`                    |   2.293 / 0.000 |           2.291 / 0.000 |                           NA |
+| `07_duckdb_parallel`           |   2.683 / 0.022 |           2.674 / 0.022 |                           NA |
+| `08_numpy`                     |         TIMEOUT |                 TIMEOUT |                           NA |
+| `09_pyarrow`                   |   1.494 / 0.000 |           1.488 / 0.001 |                           NA |
 
-| Solution                       | CPython AET | CPython_PerfOpt AET | CPython_PerfOpt NoGC AET |
-| :----------------------------- | ----------: | ------------------: | -----------------------: |
-| `00_native_DictReader`         |     100.426 |              83.278 |                   83.206 |
-| `01_native_split`              |      39.573 |              34.641 |                   34.648 |
-| `02_native_read_text`          |      43.138 |              38.062 |                   37.511 |
-| `03_pandas`                    |      23.991 |              20.993 |                       NA |
-| `03_pandas_pyarrow`            |       8.608 |               8.129 |                       NA |
-| `04_dask`                      |      17.161 |              16.589 |                       NA |
-| `04_dask_pyarrow`              |       6.933 |               6.944 |                       NA |
-| `05_modin_ray`                 |      25.510 |              23.954 |                       NA |
-| `06_polars_read_csv`           |       4.316 |               4.368 |                       NA |
-| `06_polars_scan_csv`           |       4.609 |               4.613 |                       NA |
-| `06_polars_scan_csv_streaming` |       2.900 |               2.896 |                       NA |
-| `07_duckdb`                    |       2.229 |               2.225 |                       NA |
-| `07_duckdb_parallel`           |       2.577 |               2.592 |                       NA |
-| `08_numpy`                     |         DNF |                 DNF |                       NA |
-| `09_pyarrow`                   |       1.520 |               1.489 |                       NA |
+### Sample Size: 200 million (3.0G)
+
+| Solution                       | CPython AET/VAR | CPython_PerfOpt AET/VAR |
+| :----------------------------- | --------------: | ----------------------: |
+| `06_polars_read_csv`           |  10.383 / 0.325 |          11.147 / 0.151 |
+| `06_polars_scan_csv`           |  10.521 / 0.022 |          10.969 / 0.066 |
+| `06_polars_scan_csv_streaming` |   4.907 / 0.000 |           4.872 / 0.000 |
+| `07_duckdb`                    |   4.905 / 0.230 |           4.950 / 0.218 |
+| `07_duckdb_parallel`           |   5.411 / 0.001 |           5.391 / 0.000 |
+| `09_pyarrow`                   |   3.115 / 0.050 |           3.104 / 0.041 |
+
+### Sample Size: 1 billion (15G)
+
+| Solution                       | CPython AET/VAR | CPython_PerfOpt AET/VAR |
+| :----------------------------- | --------------: | ----------------------: |
+| `06_polars_read_csv`           |          KILLED |                  KILLED |
+| `06_polars_scan_csv`           |          KILLED |                  KILLED |
+| `06_polars_scan_csv_streaming` |  28.415 / 0.015 |          28.200 / 0.482 |
+| `07_duckdb`                    |  30.683 / 0.610 |          30.233 / 1.093 |
+| `07_duckdb_parallel`           |  31.040 / 0.134 |          31.231 / 0.242 |
+| `09_pyarrow`                   |          KILLED |                  KILLED |
 
 ### Conditions
 
@@ -65,7 +89,7 @@ Individual execution timeout: 2 minutes
 - `06_polars_scan_csv`: variant of `06_polars_read_csv` that uses `pl.scan_csv()` instead of `pl.read_csv()` for a lazy evaluation
 - `06_polars_scan_csv_streaming`: variant of `06_polars_scan_csv` that uses `collect(streaming=True)` to process the query in batches to handle larger-than-memory data
 - `07_duckdb`: uses [duckdb](https://duckdb.org/) as an in-process analytical database; reads the csv data through `duckdb.read_csv()` and then simply groups and aggregates for `min, avg, max`
-- `07_duckdb_parallel`: variant of `07_duckdb` that uses `duckdb.read_csv(parallel=True)` for parallel processing
+- `07_duckdb_parallel`: variant of `07_duckdb` that uses `duckdb.read_csv(parallel=True)` for parallel processing (experimental feature)
 - `08_numpy`: reads the csv data with `pandas.read_csv()`, converts the dataframe using `df.to_numpy()`, computes the unique stations, iterates over each unique one, filters the data for it, and then calculates the min, average, and max
 - `09_pyarrow`: uses the [pyarrow](https://pypi.org/project/pyarrow/) engine to read the csv with `pyarrow.csv.read_csv()`, groups by station, aggregates for `min, avg, max`, and finally joins all columns into a single one
 

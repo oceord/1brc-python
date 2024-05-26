@@ -1,0 +1,25 @@
+Module:
+    onebrc.06_polars_read_csv
+AvgExecTime / Variance:
+    Killed
+
+Module:
+    onebrc.06_polars_scan_csv
+AvgExecTime / Variance:
+    Killed
+
+Module:
+    onebrc.06_polars_scan_csv_streaming
+AvgExecTime / Variance:
+    28.2 / 0.482
+ExecTimes:
+    (1) 26.40347541600022
+    (2) 27.594526257000325
+    (3) 28.39243068700125
+    (4) 28.443044374000237
+    (5) 28.476904842000295
+    (6) 28.49229512400052
+    (0) 28.503303740000774
+    (8) 28.555859693999082
+    (7) 28.55831333400056
+    (9) 28.57113213699995

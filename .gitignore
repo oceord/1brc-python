@@ -266,5 +266,3 @@ $RECYCLE.BIN/
 
 test_data/
 TODO.md
-
-!exec_logs/*.log

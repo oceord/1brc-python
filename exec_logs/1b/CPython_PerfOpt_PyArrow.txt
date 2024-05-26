@@ -1,0 +1,4 @@
+Module:
+    onebrc.09_pyarrow
+AvgExecTime / Variance:
+    Killed
