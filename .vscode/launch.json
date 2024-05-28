@@ -33,6 +33,34 @@
             ]
         },
         {
+            "name": "CurrFile_Parquet",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "/workspaces/1brc-python/test_data/100t.txt.uncompressed.parquet",
+                "--avg",
+                "1",
+                "-t",
+                "3600"
+            ]
+        },
+        {
+            "name": "CurrFile_Parquet_Avg",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "/workspaces/1brc-python/test_data/100t.txt",
+                "--avg",
+                "10",
+                "-t",
+                "3600"
+            ]
+        },
+        {
             "name": "CurrFile_int",
             "type": "debugpy",
             "request": "launch",

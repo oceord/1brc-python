@@ -10,7 +10,7 @@ Contrary to the rules of the challenge, external dependencies are used.
 
 Next, follow benchmarks for all solutions for 3 sample sizes: 100 million, 200 million, and 1 billion.
 Only solutions that took less than 5 seconds for a sample size of 100 million were considered in samples bigger than that.
-200 million is the largest sample size that allowed all solutions to run without being killed by the Out Of Memory Killer (OOM Killer), "a process that the linux kernel employs when the system is critically low on memory" [[source](https://neo4j.com/developer/kb/linux-out-of-memory-killer/)].
+200 million is the largest sample size that allowed (almost) all solutions to run without being killed by the Out Of Memory Killer (OOM Killer), "a process that the linux kernel employs when the system is critically low on memory" [[source](https://neo4j.com/developer/kb/linux-out-of-memory-killer/)].
 Solutions killed are marked with KILLED.
 These benchmarks are the Average Execution Time (AET) in seconds for 10 executions.
 The variance (VAR) is also presented alongside each individual benchmark.
@@ -21,45 +21,81 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 
 ### Sample Size: 100 million (1.5G)
 
-| Solution                       | CPython AET/VAR | CPython_PerfOpt AET/VAR | CPython_PerfOpt NoGC AET/VAR |
-| :----------------------------- | --------------: | ----------------------: | ---------------------------: |
-| `00_native_DictReader`         | 101.018 / 0.270 |          83.905 / 0.171 |                83.84 / 0.651 |
-| `01_native_split`              |  39.651 / 0.091 |          34.303 / 0.122 |               35.148 / 0.702 |
-| `02_native_read_text`          |  43.390 / 0.224 |          38.652 / 0.105 |               38.144 / 0.032 |
-| `03_pandas`                    |  23.727 / 0.034 |          21.028 / 0.009 |                           NA |
-| `03_pandas_pyarrow`            |   8.706 / 0.005 |           8.199 / 0.004 |                           NA |
-| `04_dask`                      |  17.312 / 0.009 |          16.642 / 0.009 |                           NA |
-| `04_dask_pyarrow`              |   6.989 / 0.004 |           6.932 / 0.004 |                           NA |
-| `05_modin_ray`                 |  31.191 / 0.325 |          29.237 / 0.058 |                           NA |
-| `06_polars_read_csv`           |   4.322 / 0.012 |           4.386 / 0.023 |                           NA |
-| `06_polars_scan_csv`           |   4.545 / 0.006 |           4.639 / 0.019 |                           NA |
-| `06_polars_scan_csv_streaming` |   2.454 / 0.000 |           2.457 / 0.000 |                           NA |
-| `07_duckdb`                    |   2.293 / 0.000 |           2.291 / 0.000 |                           NA |
-| `07_duckdb_parallel`           |   2.683 / 0.022 |           2.674 / 0.022 |                           NA |
-| `08_numpy`                     |         TIMEOUT |                 TIMEOUT |                           NA |
-| `09_pyarrow`                   |   1.494 / 0.000 |           1.488 / 0.001 |                           NA |
+| Solution                                                  | CPython AET/VAR | CPython_PerfOpt AET/VAR | CPython_PerfOpt NoGC AET/VAR |
+| :-------------------------------------------------------- | --------------: | ----------------------: | ---------------------------: |
+| `00_native_DictReader`                                    | 101.018 / 0.270 |          83.905 / 0.171 |                83.84 / 0.651 |
+| `01_native_split`                                         |  39.651 / 0.091 |          34.303 / 0.122 |               35.148 / 0.702 |
+| `02_native_read_text`                                     |  43.390 / 0.224 |          38.652 / 0.105 |               38.144 / 0.032 |
+| `03_pandas`                                               |  23.727 / 0.034 |          21.028 / 0.009 |                           NA |
+| `03_pandas_pyarrow`                                       |   8.706 / 0.005 |           8.199 / 0.004 |                           NA |
+| `04_dask`                                                 |  17.312 / 0.009 |          16.642 / 0.009 |                           NA |
+| `04_dask_pyarrow`                                         |   6.989 / 0.004 |           6.932 / 0.004 |                           NA |
+| `05_modin_ray`                                            |  31.191 / 0.325 |          29.237 / 0.058 |                           NA |
+| `06_polars_read_csv`                                      |   4.322 / 0.012 |           4.386 / 0.023 |                           NA |
+| `06_polars_scan_csv`                                      |   4.545 / 0.006 |           4.639 / 0.019 |                           NA |
+| `06_polars_scan_csv_streaming`                            |   2.454 / 0.000 |           2.457 / 0.000 |                           NA |
+| `07_duckdb`                                               |   2.293 / 0.000 |           2.291 / 0.000 |                           NA |
+| `07_duckdb_parallel`                                      |   2.683 / 0.022 |           2.674 / 0.022 |                           NA |
+| `08_numpy`                                                |         TIMEOUT |                 TIMEOUT |                           NA |
+| `09_pyarrow`                                              |   1.494 / 0.000 |           1.488 / 0.001 |                           NA |
+| `10_parquet_polars_read_parquet` (uncompressed)           |   3.988 / 0.021 |           3.776 / 0.016 |                           NA |
+| `10_parquet_polars_scan_parquet` (uncompressed)           |   4.107 / 0.024 |           3.848 / 0.012 |                           NA |
+| `10_parquet_polars_scan_parquet_streaming` (uncompressed) |   2.045 / 0.000 |           2.049 / 0.000 |                           NA |
+| `10_parquet_duckdb` (uncompressed)                        |   1.587 / 0.000 |           1.583 / 0.000 |                           NA |
+| `10_parquet_pyarrow` (uncompressed)                       |   1.104 / 0.002 |           1.084 / 0.000 |                           NA |
+| `10_parquet_pyarrow_memory_map` (uncompressed)            |   1.030 / 0.002 |           1.017 / 0.000 |                           NA |
+| `10_parquet_polars_read_parquet` (lz4)                    |   4.164 / 0.009 |           4.004 / 0.013 |                           NA |
+| `10_parquet_polars_scan_parquet` (lz4)                    |   4.162 / 0.013 |           3.911 / 0.027 |                           NA |
+| `10_parquet_polars_scan_parquet_streaming` (lz4)          |   2.138 / 0.000 |           2.134 / 0.000 |                           NA |
+| `10_parquet_duckdb` (lz4)                                 |   1.646 / 0.000 |           1.649 / 0.000 |                           NA |
+| `10_parquet_pyarrow` (lz4)                                |   1.125 / 0.001 |           1.111 / 0.000 |                           NA |
+| `10_parquet_pyarrow_memory_map` (lz4)                     |   1.053 / 0.000 |           1.050 / 0.000 |                           NA |
 
 ### Sample Size: 200 million (3.0G)
 
-| Solution                       | CPython AET/VAR | CPython_PerfOpt AET/VAR |
-| :----------------------------- | --------------: | ----------------------: |
-| `06_polars_read_csv`           |  10.383 / 0.325 |          11.147 / 0.151 |
-| `06_polars_scan_csv`           |  10.521 / 0.022 |          10.969 / 0.066 |
-| `06_polars_scan_csv_streaming` |   4.907 / 0.000 |           4.872 / 0.000 |
-| `07_duckdb`                    |   4.905 / 0.230 |           4.950 / 0.218 |
-| `07_duckdb_parallel`           |   5.411 / 0.001 |           5.391 / 0.000 |
-| `09_pyarrow`                   |   3.115 / 0.050 |           3.104 / 0.041 |
+| Solution                                                  | CPython AET/VAR | CPython_PerfOpt AET/VAR |
+| :-------------------------------------------------------- | --------------: | ----------------------: |
+| `06_polars_read_csv`                                      |  10.383 / 0.325 |          11.147 / 0.151 |
+| `06_polars_scan_csv`                                      |  10.521 / 0.022 |          10.969 / 0.066 |
+| `06_polars_scan_csv_streaming`                            |   4.907 / 0.000 |           4.872 / 0.000 |
+| `07_duckdb`                                               |   4.905 / 0.230 |           4.950 / 0.218 |
+| `07_duckdb_parallel`                                      |   5.411 / 0.001 |           5.391 / 0.000 |
+| `09_pyarrow`                                              |   3.115 / 0.050 |           3.104 / 0.041 |
+| `10_parquet_polars_read_parquet` (uncompressed)           |          KILLED |                  KILLED |
+| `10_parquet_polars_scan_parquet` (uncompressed)           |   9.379 / 0.199 |           9.579 / 0.107 |
+| `10_parquet_polars_scan_parquet_streaming` (uncompressed) |   4.087 / 0.000 |           4.089 / 0.000 |
+| `10_parquet_duckdb` (uncompressed)                        |   3.159 / 0.000 |           3.158 / 0.000 |
+| `10_parquet_pyarrow` (uncompressed)                       |   2.266 / 0.005 |           2.268 / 0.005 |
+| `10_parquet_pyarrow_memory_map` (uncompressed)            |   2.054 / 0.003 |           2.051 / 0.010 |
+| `10_parquet_polars_read_parquet` (lz4)                    |          KILLED |                  KILLED |
+| `10_parquet_polars_scan_parquet` (lz4)                    |   9.725 / 0.117 |           9.613 / 0.100 |
+| `10_parquet_polars_scan_parquet_streaming` (lz4)          |   4.284 / 0.000 |           4.268 / 0.000 |
+| `10_parquet_duckdb` (lz4)                                 |   3.298 / 0.000 |           3.294 / 0.000 |
+| `10_parquet_pyarrow` (lz4)                                |   2.338 / 0.004 |           2.316 / 0.002 |
+| `10_parquet_pyarrow_memory_map` (lz4)                     |   2.146 / 0.008 |           2.154 / 0.007 |
 
 ### Sample Size: 1 billion (15G)
 
-| Solution                       | CPython AET/VAR | CPython_PerfOpt AET/VAR |
-| :----------------------------- | --------------: | ----------------------: |
-| `06_polars_read_csv`           |          KILLED |                  KILLED |
-| `06_polars_scan_csv`           |          KILLED |                  KILLED |
-| `06_polars_scan_csv_streaming` |  28.415 / 0.015 |          28.200 / 0.482 |
-| `07_duckdb`                    |  30.683 / 0.610 |          30.233 / 1.093 |
-| `07_duckdb_parallel`           |  31.040 / 0.134 |          31.231 / 0.242 |
-| `09_pyarrow`                   |          KILLED |                  KILLED |
+| Solution                                                  | CPython AET/VAR | CPython_PerfOpt AET/VAR |
+| :-------------------------------------------------------- | --------------: | ----------------------: |
+| `06_polars_read_csv`                                      |          KILLED |                  KILLED |
+| `06_polars_scan_csv`                                      |          KILLED |                  KILLED |
+| `06_polars_scan_csv_streaming`                            |  28.415 / 0.015 |          28.200 / 0.482 |
+| `07_duckdb`                                               |  30.683 / 0.610 |          30.233 / 1.093 |
+| `07_duckdb_parallel`                                      |  31.040 / 0.134 |          31.231 / 0.242 |
+| `09_pyarrow`                                              |          KILLED |                  KILLED |
+| `10_parquet_polars_read_parquet` (uncompressed)           |          KILLED |                  KILLED |
+| `10_parquet_polars_scan_parquet` (uncompressed)           |          KILLED |                  KILLED |
+| `10_parquet_polars_scan_parquet_streaming` (uncompressed) |  20.310 / 0.031 |          20.323 / 0.016 |
+| `10_parquet_duckdb` (uncompressed)                        |  15.693 / 0.001 |          15.695 / 0.001 |
+| `10_parquet_pyarrow` (uncompressed)                       |          KILLED |                  KILLED |
+| `10_parquet_pyarrow_memory_map` (uncompressed)            |          KILLED |                  KILLED |
+| `10_parquet_polars_read_parquet` (lz4)                    |          KILLED |                  KILLED |
+| `10_parquet_polars_scan_parquet` (lz4)                    |          KILLED |                  KILLED |
+| `10_parquet_polars_scan_parquet_streaming` (lz4)          |  21.260 / 0.006 |          21.244 / 0.006 |
+| `10_parquet_duckdb` (lz4)                                 |  16.384 / 0.001 |          16.372 / 0.000 |
+| `10_parquet_pyarrow` (lz4)                                |          KILLED |                  KILLED |
+| `10_parquet_pyarrow_memory_map` (lz4)                     |          KILLED |                  KILLED |
 
 ### Conditions
 
@@ -92,6 +128,12 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 - `07_duckdb_parallel`: variant of `07_duckdb` that uses `duckdb.read_csv(parallel=True)` for parallel processing (experimental feature)
 - `08_numpy`: reads the csv data with `pandas.read_csv()`, converts the dataframe using `df.to_numpy()`, computes the unique stations, iterates over each unique one, filters the data for it, and then calculates the min, average, and max
 - `09_pyarrow`: uses the [pyarrow](https://pypi.org/project/pyarrow/) engine to read the csv with `pyarrow.csv.read_csv()`, groups by station, aggregates for `min, avg, max`, and finally joins all columns into a single one
+- `10_parquet_polars_read_parquet`: same approach as `06_polars_read_csv`, but uses a parquet file instead of a CSV
+- `10_parquet_polars_scan_parquet`: same approach as `06_polars_scan_csv`, but uses a parquet file instead of a CSV
+- `10_parquet_polars_scan_parquet_streaming`: same approach as `06_polars_scan_csv_streaming`, but uses a parquet file instead of a CSV
+- `10_parquet_duckdb`: same approach as `07_duckdb`, but uses a parquet file instead of a CSV
+- `10_parquet_pyarrow`: same approach as `09_pyarrow`, but uses a parquet file instead of a CSV
+- `10_parquet_pyarrow_memory_map`: variant of `10_parquet_pyarrow` that uses `read_table(memory_map=True)` to try to increase performance
 
 ### Python Implementations
 

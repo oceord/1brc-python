@@ -155,3 +155,67 @@ run-pyarrow-200m-docker: ## Run all modules inside a docker container using 200m
 
 run-pyarrow-1b-docker: ## Run all modules inside a docker container using 1b.txt;
 	@python -m onebrc.09_pyarrow /onebrc/test_data/1b.txt --avg 10 -t 120
+
+run-parquet-100t-docker: ## Run all modules inside a docker container using 100t.txt
+	@echo Compression: uncompressed; \
+		python -m onebrc.10_parquet_polars_read_parquet /onebrc/test_data/100t.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet /onebrc/test_data/100t.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet_streaming /onebrc/test_data/100t.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_duckdb /onebrc/test_data/100t.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow /onebrc/test_data/100t.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow_memory_map /onebrc/test_data/100t.txt.uncompressed.parquet --avg 10 -t 120
+	@echo Compression: lz4; \
+		python -m onebrc.10_parquet_polars_read_parquet /onebrc/test_data/100t.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet /onebrc/test_data/100t.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet_streaming /onebrc/test_data/100t.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_duckdb /onebrc/test_data/100t.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow /onebrc/test_data/100t.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow_memory_map /onebrc/test_data/100t.txt.lz4.parquet --avg 10 -t 120
+
+run-parquet-100m-docker: ## Run all modules inside a docker container using 100m.txt
+	@echo Compression: uncompressed; \
+		python -m onebrc.10_parquet_polars_read_parquet /onebrc/test_data/100m.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet /onebrc/test_data/100m.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet_streaming /onebrc/test_data/100m.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_duckdb /onebrc/test_data/100m.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow /onebrc/test_data/100m.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow_memory_map /onebrc/test_data/100m.txt.uncompressed.parquet --avg 10 -t 120
+	@echo Compression: lz4; \
+		python -m onebrc.10_parquet_polars_read_parquet /onebrc/test_data/100m.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet /onebrc/test_data/100m.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet_streaming /onebrc/test_data/100m.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_duckdb /onebrc/test_data/100m.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow /onebrc/test_data/100m.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow_memory_map /onebrc/test_data/100m.txt.lz4.parquet --avg 10 -t 120
+
+run-parquet-200m-docker: ## Run all modules inside a docker container using 200m.txt;
+	@echo Compression: uncompressed; \
+		python -m onebrc.10_parquet_polars_read_parquet /onebrc/test_data/200m.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet /onebrc/test_data/200m.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet_streaming /onebrc/test_data/200m.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_duckdb /onebrc/test_data/200m.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow /onebrc/test_data/200m.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow_memory_map /onebrc/test_data/200m.txt.uncompressed.parquet --avg 10 -t 120
+	@echo Compression: lz4; \
+		python -m onebrc.10_parquet_polars_read_parquet /onebrc/test_data/200m.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet /onebrc/test_data/200m.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet_streaming /onebrc/test_data/200m.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_duckdb /onebrc/test_data/200m.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow /onebrc/test_data/200m.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow_memory_map /onebrc/test_data/200m.txt.lz4.parquet --avg 10 -t 120
+
+run-parquet-1b-docker: ## Run all modules inside a docker container using 1b.txt;
+	@echo Compression: uncompressed; \
+		python -m onebrc.10_parquet_polars_read_parquet /onebrc/test_data/1b.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet /onebrc/test_data/1b.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet_streaming /onebrc/test_data/1b.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_duckdb /onebrc/test_data/1b.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow /onebrc/test_data/1b.txt.uncompressed.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow_memory_map /onebrc/test_data/1b.txt.uncompressed.parquet --avg 10 -t 120; \
+	echo Compression: lz4; \
+		python -m onebrc.10_parquet_polars_read_parquet /onebrc/test_data/1b.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet /onebrc/test_data/1b.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_polars_scan_parquet_streaming /onebrc/test_data/1b.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_duckdb /onebrc/test_data/1b.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow /onebrc/test_data/1b.txt.lz4.parquet --avg 10 -t 120; \
+		python -m onebrc.10_parquet_pyarrow_memory_map /onebrc/test_data/1b.txt.lz4.parquet --avg 10 -t 120

@@ -1,0 +1,105 @@
+Compression: uncompressed
+Module:
+    onebrc.10_parquet_polars_read_parquet
+AvgExecTime / Variance:
+    Killed
+
+Module:
+    onebrc.10_parquet_polars_scan_parquet
+AvgExecTime / Variance:
+    Killed
+
+Module:
+    onebrc.10_parquet_polars_scan_parquet_streaming
+AvgExecTime / Variance:
+    20.323 / 0.016
+ExecTimes:
+    (0) 19.985971078000148
+    (1) 20.27167212399945
+    (4) 20.312682992999726
+    (3) 20.318475381999633
+    (2) 20.346367147999445
+    (6) 20.373834292999163
+    (8) 20.3878607559991
+    (7) 20.394034339000427
+    (5) 20.403483631999734
+    (9) 20.427896553999744
+
+Module:
+    onebrc.10_parquet_duckdb
+AvgExecTime / Variance:
+    15.695 / 0.001
+ExecTimes:
+    (0) 15.633024574000046
+    (2) 15.666586027999983
+    (4) 15.672336448000351
+    (1) 15.677626020999924
+    (7) 15.695658833999914
+    (5) 15.695681362999494
+    (6) 15.698191796000174
+    (3) 15.718997167999987
+    (9) 15.720422712000072
+    (8) 15.76864995699998
+
+Module:
+    onebrc.10_parquet_pyarrow
+AvgExecTime / Variance:
+    Killed
+
+Module:
+    onebrc.10_parquet_pyarrow_memory_map
+AvgExecTime / Variance:
+    Killed
+
+Compression: lz4
+Module:
+    onebrc.10_parquet_polars_read_parquet
+AvgExecTime / Variance:
+    Killed
+
+Module:
+    onebrc.10_parquet_polars_scan_parquet
+AvgExecTime / Variance:
+    Killed
+
+Module:
+    onebrc.10_parquet_polars_scan_parquet_streaming
+AvgExecTime / Variance:
+    21.244 / 0.006
+ExecTimes:
+    (1) 21.14411067800029
+    (3) 21.15076879499975
+    (4) 21.196297572999356
+    (5) 21.214686884999537
+    (6) 21.223470544999145
+    (2) 21.227540767999926
+    (7) 21.273144785999648
+    (8) 21.311069878000126
+    (0) 21.32067584500055
+    (9) 21.37260671400054
+
+Module:
+    onebrc.10_parquet_duckdb
+AvgExecTime / Variance:
+    16.372 / 0.0
+ExecTimes:
+    (0) 16.33742359400003
+    (6) 16.3517114640008
+    (8) 16.357820580000407
+    (1) 16.36445610499959
+    (9) 16.372589266999967
+    (4) 16.378653097000097
+    (3) 16.378823204000582
+    (5) 16.37952223299999
+    (7) 16.38567313600015
+    (2) 16.405511036999997
+
+Module:
+    onebrc.10_parquet_pyarrow
+AvgExecTime / Variance:
+    Killed
+
+Module:
+    onebrc.10_parquet_pyarrow_memory_map
+AvgExecTime / Variance:
+    Killed
