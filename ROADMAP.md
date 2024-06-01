@@ -26,7 +26,7 @@
 - [ ] ORC
 - [ ] Feather
 - [ ] Avro
-- [ ] DuckDB
+- [x] DuckDB
 
 ## Python implementations
 

@@ -219,3 +219,15 @@ run-parquet-1b-docker: ## Run all modules inside a docker container using 1b.txt
 		python -m onebrc.10_parquet_duckdb /onebrc/test_data/1b.txt.lz4.parquet --avg 10 -t 120; \
 		python -m onebrc.10_parquet_pyarrow /onebrc/test_data/1b.txt.lz4.parquet --avg 10 -t 120; \
 		python -m onebrc.10_parquet_pyarrow_memory_map /onebrc/test_data/1b.txt.lz4.parquet --avg 10 -t 120
+
+run-duckdb_db-100t-docker: ## Run all modules inside a docker container using 100t.txt
+	@python -m onebrc.11_duckdb_duckdb /onebrc/test_data/100t.txt.duckdb --avg 10 -t 120
+
+run-duckdb_db-100m-docker: ## Run all modules inside a docker container using 100m.txt
+	@python -m onebrc.11_duckdb_duckdb /onebrc/test_data/100m.txt.duckdb --avg 10 -t 120
+
+run-duckdb_db-200m-docker: ## Run all modules inside a docker container using 200m.txt
+	@python -m onebrc.11_duckdb_duckdb /onebrc/test_data/200m.txt.duckdb --avg 10 -t 120
+
+run-duckdb_db-1b-docker: ## Run all modules inside a docker container using 1b.txt
+	@python -m onebrc.11_duckdb_duckdb /onebrc/test_data/1b.txt.duckdb --avg 10 -t 120

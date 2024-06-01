@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "charliermarsh.ruff",
+        "christian-kohler.path-intellisense",
         "davidanson.vscode-markdownlint",
         "foxundermoon.shell-format",
         "mikestead.dotenv",
@@ -8,12 +9,12 @@
         "ms-python.black-formatter",
         "ms-python.python",
         "ms-python.vscode-pylance",
+        "ms-toolsai.datawrangler",
+        "ms-toolsai.jupyter",
         "njpwerner.autodocstring",
         "streetsidesoftware.code-spell-checker",
         "tamasfe.even-better-toml",
         "timonwong.shellcheck",
-        "yzhang.markdown-all-in-one",
-        "christian-kohler.path-intellisense",
-        "ms-toolsai.jupyter"
+        "yzhang.markdown-all-in-one"
     ]
 }
