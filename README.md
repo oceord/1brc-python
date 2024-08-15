@@ -6,6 +6,8 @@
 This repository contains various approaches to solve [1️⃣🐝🏎️ The One Billion Row Challenge](https://github.com/gunnarmorling/onebrc) using the Python ecosystem.
 Contrary to the rules of the challenge, external dependencies are used.
 
+A roadmap is available [here](ROADMAP.md).
+
 ## Execution Benchmarks
 
 Next, follow benchmarks for all solutions for 3 sample sizes: 100 million, 200 million, and 1 billion.
