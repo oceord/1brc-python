@@ -38,6 +38,7 @@
         "loadtxt",
         "Modin",
         "mrjob",
+        "mult",
         "ndigits",
         "njit",
         "Numba",

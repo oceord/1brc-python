@@ -53,6 +53,7 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 | `10_parquet_pyarrow` (lz4)                                |   1.125 / 0.001 |           1.111 / 0.000 |                           NA |
 | `10_parquet_pyarrow_memory_map` (lz4)                     |   1.053 / 0.000 |           1.050 / 0.000 |                           NA |
 | `11_duckdb_duckdb`                                        |   1.120 / 0.000 |           1.143 / 0.000 |                           NA |
+| `12_mult_avro_duckdb` (uncompressed)                      |   0.623 / 0.000 |                      NA |                           NA |
 
 ### Sample Size: 200 million (3.0G)
 
@@ -77,6 +78,7 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 | `10_parquet_pyarrow` (lz4)                                |   2.338 / 0.004 |           2.316 / 0.002 |
 | `10_parquet_pyarrow_memory_map` (lz4)                     |   2.146 / 0.008 |           2.154 / 0.007 |
 | `11_duckdb_duckdb`                                        |   2.209 / 0.000 |           2.209 / 0.000 |
+| `12_mult_avro_duckdb` (uncompressed)                      |   1.389 / 0.201 |                      NA |
 
 ### Sample Size: 1 billion (15G)
 
@@ -101,6 +103,7 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 | `10_parquet_pyarrow` (lz4)                                |          KILLED |                  KILLED |
 | `10_parquet_pyarrow_memory_map` (lz4)                     |          KILLED |                  KILLED |
 | `11_duckdb_duckdb`                                        |  12.626 / 0.256 |          12.647 / 0.629 |
+| `12_mult_avro_duckdb` (uncompressed)                      |  12.638 / 1.022 |                      NA |
 
 ### Conditions
 
@@ -140,6 +143,7 @@ Please refer to [Python Implementations](#python-implementations) for more infor
 - `10_parquet_pyarrow`: same approach as `09_pyarrow`, but uses a parquet file instead of a CSV
 - `10_parquet_pyarrow_memory_map`: variant of `10_parquet_pyarrow` that uses `read_table(memory_map=True)` to try to increase performance
 - `11_duckdb_duckdb`: same approach as `07_duckdb`, but uses a duckdb file instead of a CSV
+- `12_mult_avro_duckdb`: same approach as `07_duckdb`, but uses multiple avro files instead of a CSV
 
 ### Python Implementations
 

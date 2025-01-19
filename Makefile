@@ -231,3 +231,19 @@ run-duckdb_db-200m-docker: ## Run all modules inside a docker container using 20
 
 run-duckdb_db-1b-docker: ## Run all modules inside a docker container using 1b.txt
 	@python -m onebrc.11_duckdb_duckdb /onebrc/test_data/1b.txt.duckdb --avg 10 -t 120
+
+run-mult_avro_duckdb-100t-docker: ## Run all modules inside a docker container using 100t.txt
+	@echo Compression: uncompressed; \
+		python -m onebrc.12_mult_avro_duckdb '/onebrc/test_data/100t/avro/*.uncompressed.avro' --avg 10 -t 120;
+
+run-mult_avro_duckdb-100m-docker: ## Run all modules inside a docker container using 100m.txt
+	@echo Compression: uncompressed; \
+		python -m onebrc.12_mult_avro_duckdb '/onebrc/test_data/100m/avro/*.uncompressed.avro' --avg 10 -t 120
+
+run-mult_avro_duckdb-200m-docker: ## Run all modules inside a docker container using 200m.txt
+	@echo Compression: uncompressed; \
+		python -m onebrc.12_mult_avro_duckdb '/onebrc/test_data/200m/avro/*.uncompressed.avro' --avg 10 -t 120
+
+run-mult_avro_duckdb-1b-docker: ## Run all modules inside a docker container using 1b.txt
+	@echo Compression: uncompressed; \
+		python -m onebrc.12_mult_avro_duckdb '/onebrc/test_data/1b/avro/*.uncompressed.avro' --avg 10 -t 120

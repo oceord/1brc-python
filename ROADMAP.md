@@ -23,10 +23,13 @@
 ## File formats
 
 - [x] Parquet
-- [ ] ORC
-- [ ] Feather
 - [ ] Avro
+- [ ] Feather
+- [ ] ORC
 - [x] DuckDB
+- [ ] Multiple files
+  - [x] Avro
+  - [ ] Parquet
 
 ## Python implementations
 
