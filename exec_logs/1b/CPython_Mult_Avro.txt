@@ -1,17 +1,23 @@
 Compression: uncompressed
-Module:
-    onebrc.12_mult_avro_duckdb
-AvgExecTime / Variance:
-    12.638 / 1.022
-ExecTimes:
-    (9) 10.808960500000467
-    (8) 11.424282105999737
-    (6) 11.686207017000925
-    (7) 12.336363567001172
-    (5) 12.855433708000419
-    (4) 13.390030246999231
-    (2) 13.393481963999875
-    (3) 13.473060927000915
-    (0) 13.47656258400093
-    (1) 13.529332361998968
+Traceback (most recent call last):
+  File "/home/python/.local/lib/python3.12/site-packages/onebrc/decorators/timeit.py", line 72, in _signal_handler
+    raise TimeoutError
+TimeoutError
 
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/python/.local/lib/python3.12/site-packages/onebrc/12_mult_avro_duckdb.py", line 40, in <module>
+    main(args.path, args.avg, args.timeout)
+  File "/home/python/.local/lib/python3.12/site-packages/onebrc/12_mult_avro_duckdb.py", line 27, in main
+    exec_func(_main, timeout, path)
+  File "/home/python/.local/lib/python3.12/site-packages/onebrc/decorators/timeit.py", line 15, in exec_func
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/python/.local/lib/python3.12/site-packages/onebrc/12_mult_avro_duckdb.py", line 22, in _main
+    res = con.execute(stmt).fetchall()
+          ^^^^^^^^^^^^^^^^^
+RuntimeError: Query interrupted
+make: *** [Makefile:248: run-mult_avro_duckdb-1b-docker] Error 1

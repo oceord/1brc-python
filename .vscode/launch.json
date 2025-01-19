@@ -116,6 +116,34 @@
                 "3600"
             ]
         },
+        {
+            "name": "CurrFile_Avro",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "/workspaces/1brc-python/test_data/100t/100t.uncompressed.avro",
+                "--avg",
+                "1",
+                "-t",
+                "3600"
+            ]
+        },
+        {
+            "name": "CurrFile_MAvro_Avg",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "/workspaces/1brc-python/test_data/100t/100t.uncompressed.avro",
+                "--avg",
+                "10",
+                "-t",
+                "3600"
+            ]
+        },
         // {
         //     "name": "CurrFile_int",
         //     "type": "debugpy",

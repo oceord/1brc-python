@@ -23,7 +23,7 @@
 ## File formats
 
 - [x] Parquet
-- [ ] Avro
+- [x] Avro
 - [ ] Feather
 - [ ] ORC
 - [x] DuckDB

@@ -263,3 +263,19 @@ run-mult_parquet_duckdb-200m-docker: ## Run all modules inside a docker containe
 run-mult_parquet_duckdb-1b-docker: ## Run all modules inside a docker container using 1b.txt
 	@echo Compression: uncompressed; \
 		python -m onebrc.12_mult_parquet_duckdb '/onebrc/test_data/1b/parquet/*.uncompressed.parquet' --avg 10 -t 120
+
+run-avro_duckdb-100t-docker: ## Run all modules inside a docker container using 100t.txt
+	@echo Compression: uncompressed; \
+		python -m onebrc.13_avro_duckdb '/onebrc/test_data/100t/100t.uncompressed.avro' --avg 10 -t 120;
+
+run-avro_duckdb-100m-docker: ## Run all modules inside a docker container using 100m.txt
+	@echo Compression: uncompressed; \
+		python -m onebrc.13_avro_duckdb '/onebrc/test_data/100m/100m.uncompressed.avro' --avg 10 -t 120
+
+run-avro_duckdb-200m-docker: ## Run all modules inside a docker container using 200m.txt
+	@echo Compression: uncompressed; \
+		python -m onebrc.13_avro_duckdb '/onebrc/test_data/200m/200m.uncompressed.avro' --avg 10 -t 120
+
+run-avro_duckdb-1b-docker: ## Run all modules inside a docker container using 1b.txt
+	@echo Compression: uncompressed; \
+		python -m onebrc.13_avro_duckdb '/onebrc/test_data/1b/1b.uncompressed.avro' --avg 10 -t 120

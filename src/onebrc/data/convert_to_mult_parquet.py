@@ -20,9 +20,10 @@ if __name__ == "__main__":
         separator=";",
         has_header=False,
         dtypes={"station": pl.String, "measurement": pl.Float32},
-        batch_size=100_000,
+        batch_size=1_000_000,
     )
-    batches = input_batched_reader.next_batches(100)
+    BATCH_VOL = 1
+    batches = input_batched_reader.next_batches(BATCH_VOL)
     i = 0
     while batches:
         df_current_batches = pl.concat(batches)
@@ -32,4 +33,4 @@ if __name__ == "__main__":
             compression="uncompressed",
         )
         i += 1
-        batches = input_batched_reader.next_batches(100)
+        batches = input_batched_reader.next_batches(BATCH_VOL)

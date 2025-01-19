@@ -12,6 +12,7 @@ dask = {extras = ["dataframe"] }
 modin = {extras = ["dask"], version = "*"}
 polars = "*"
 duckdb = "*"
+fastavro = "*"
 
 [dev-packages]
 onebrc = {file = ".", editable = true}
