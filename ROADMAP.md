@@ -29,7 +29,7 @@
 - [x] DuckDB
 - [ ] Multiple files
   - [x] Avro
-  - [ ] Parquet
+  - [x] Parquet
 
 ## Python implementations
 

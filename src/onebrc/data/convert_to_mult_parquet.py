@@ -6,12 +6,14 @@ if __name__ == "__main__":
     import polars as pl
 
     measurements_file = Path(sys.argv[1])
-    output_avro_parent = measurements_file.parent / measurements_file.stem / "avro"
-    avro_filename = "n{INDEX}.{INFO}.avro"
+    output_parquet_parent = (
+        measurements_file.parent / measurements_file.stem / "parquet"
+    )
+    parquet_filename = "n{INDEX}.{INFO}.parquet"
 
-    if output_avro_parent.exists():
-        shutil.rmtree(output_avro_parent)
-    output_avro_parent.mkdir(parents=True, exist_ok=True)
+    if output_parquet_parent.exists():
+        shutil.rmtree(output_parquet_parent)
+    output_parquet_parent.mkdir(parents=True, exist_ok=True)
 
     input_batched_reader = pl.read_csv_batched(
         measurements_file,
@@ -24,11 +26,10 @@ if __name__ == "__main__":
     i = 0
     while batches:
         df_current_batches = pl.concat(batches)
-        df_current_batches.write_avro(
-            output_avro_parent
-            / avro_filename.format(INDEX=f"{i:05d}", INFO="uncompressed"),
+        df_current_batches.write_parquet(
+            output_parquet_parent
+            / parquet_filename.format(INDEX=f"{i:05d}", INFO="uncompressed"),
             compression="uncompressed",
-            name="onebrc",
         )
         i += 1
         batches = input_batched_reader.next_batches(100)

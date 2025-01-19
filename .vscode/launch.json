@@ -61,7 +61,35 @@
             ]
         },
         {
-            "name": "CurrFile_Avro",
+            "name": "CurrFile_MParquet",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "/workspaces/1brc-python/test_data/100t/parquet/*.uncompressed.parquet",
+                "--avg",
+                "1",
+                "-t",
+                "3600"
+            ]
+        },
+        {
+            "name": "CurrFile_MParquet_Avg",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "/workspaces/1brc-python/test_data/100t/parquet/*.uncompressed.parquet",
+                "--avg",
+                "10",
+                "-t",
+                "3600"
+            ]
+        },
+        {
+            "name": "CurrFile_MAvro",
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
@@ -75,7 +103,7 @@
             ]
         },
         {
-            "name": "CurrFile_Avro_Avg",
+            "name": "CurrFile_MAvro_Avg",
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
