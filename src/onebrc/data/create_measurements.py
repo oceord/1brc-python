@@ -96,6 +96,7 @@ def build_test_data(weather_station_names, num_rows_to_create):
     print("Building test data...")
 
     try:
+        OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
         with Path(OUTPUT_FILE).open("w") as file:
             progress = 0
             for chunk in range(chunks):
