@@ -31,6 +31,7 @@
         "dceil",
         "dedups",
         "dtype",
+        "dtypes",
         "duckdb",
         "genfromtxt",
         "groupby",

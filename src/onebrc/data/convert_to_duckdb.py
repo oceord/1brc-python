@@ -20,7 +20,6 @@ if __name__ == "__main__":
                 '{measurements_file!s}',
                 delim=';',
                 header=false,
-                names=['station', 'measurement'],
                 columns={{'station': 'VARCHAR', 'measurement': 'DOUBLE'}}
             );""",  # noqa: S608
         )
